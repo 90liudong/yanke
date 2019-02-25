@@ -1,0 +1,52 @@
+<!--pages/user/user.wxml-->
+<!-- 没有用户时 -->
+
+<view wx:if="{{show}}">
+ <view class='head' wx:if="{{b1}}">
+  <view class='op' bindtap='getB1'>B1-2用户  <view wx:if="{{line}}" class='line'></view></view>
+  <view class='op' bindtap='getB1_2'>B2用户 <view wx:if="{{!line}}" class='line'></view></view>
+  <view style='clear:both;'></view>
+</view>
+
+ <view class='head' wx:if="{{!b1}}" style='text-align:center;padding-bottom:29rpx;'>
+    B2用户
+</view>
+
+<view class='one' wx:for="{{B1}}" wx:for-item="i" wx:key="*this">
+  <image src='{{i.headimg}}' class='img'></image>
+  <view class='content'>
+    <view >
+      <view class='weixin'>{{i.nickname}}</view>
+      <view wx:if="{{i.discount != 0}}" class='zhe'>折扣：{{i.discount}}折 <image src = "../../public/img/change.png" data-uid="{{i}}" class='p1' data-count="{{i.discount}}" data-tel="{{i.tel}}" bindtap='toedit'></image></view>
+      <view wx:if="{{i.discount == 0}}" class='zhe'>折扣：无 <image src = "../../public/img/change.png" data-uid="{{i}}" class='p1' data-count="{{i.discount}}" data-tel="{{i.tel}}" bindtap='toedit'></image></view>
+      <view style='clear:both;'></view>  
+    </view>
+    <view class='info'>
+      <view><span class="se">注册时间：</span>{{i.time}}</view>
+      <view><span class="se">手机号码：</span>{{i.tel}}</view>
+      <view><span class="se">出货总额：</span>{{i.totalprofit}}</view>  
+    </view>
+  </view>
+  <view style='clear:both;'></view>
+</view> 
+<view style='width:100%;text-aline:center;' wx:if="{{B1.length == 0}}"> 
+  <image src='../../public/img/noneuser.png' style='width:170rpx;height:163rpx;margin:165rpx 35%;margin-bottom:0;' ></image>
+  <view style='color:#898989;margin:24px auto;width:100%;text-align:center;font-size:28rpx;'>您暂时还没有此类用户！</view>
+</view>  
+
+<!-- 浮层 -->
+ <view wx:if='{{edit}}' class='fu'>
+  <view class='center'>
+    <view class='fu-head'>优惠折扣</view>
+      <view class='info2'>
+        <view style='padding:50rpx 0;'>
+            <view class='zhong'><input  maxlength='2' type='number' value='{{discount}}' bindinput ="disInput" class='zhekou'></input></view>
+            <view style='float:left;'>折</view>
+            <view style='clear:both;'></view>          
+        </view>
+      </view>
+    <view class='sure' bindtap='sureedit'>确定</view>
+  </view>
+  <view class='xx' bindtap='eqedit'><image src="../../public/img/x.png" style='width:50rpx;height:50rpx;'></image></view>
+</view> 
+</view>

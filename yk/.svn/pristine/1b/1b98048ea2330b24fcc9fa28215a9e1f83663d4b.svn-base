@@ -1,0 +1,4 @@
+<!--pages/test/test.wxml-->
+<button bindtap='jump'>商品分享码测试</button>
+<button bindtap='jump1'>注册邀请下级码测试</button>
+<button bindtap='jump2'>普通进入测试</button>

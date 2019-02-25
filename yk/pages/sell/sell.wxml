@@ -1,0 +1,24 @@
+<!--pages/invite/invite.wxml-->
+<!-- <view class='one' wx:for="{{inv}}" wx:for-index="index" wx:for-item="item" wx:key="*this">
+  <image src='../../public/img/invbg1.png' style='width:100%;height:560rpx;'></image>
+  <view class='head' wx:if="{{len==2 && index==0}}">我想邀请一名B1-2用户</view>
+   <view class='head' wx:if="{{len==2 && index==1}}">我想邀请一名B2用户</view>
+    <view class='head' wx:if="{{len==1}}">我想邀请一名B2用户</view>
+  <view class='center'>
+    <image style='width:272rpx;height:272rpx;z-index:10;' src='{{item}}'></image>
+  </view>
+  <view class='copy' bindtap='copy1' data-id="{{index}}">保存到手机</view>
+</view> -->
+
+<!-- <view class='one'>
+  <image src='../../public/img/invbg.png' style='width:100%;height:230px;'></image>
+  <view class='head'>我想邀请一名B2用户</view>
+  <view class='center'>qz23vs</view>
+  <view class='copy'>点击复制邀请码</view>
+</view> -->
+
+<view>
+  <image src='{{sell}}' style='width:530rpx;height:560rpx;margin-left:110rpx;margin-top:80rpx;box-shadow:1px 1px 8px 1px #ccc;border-radius:9px;'></image>
+</view>
+
+<view class='copy' bindtap='saveImgToPhotosAlbumTap' >保存到手机</view>

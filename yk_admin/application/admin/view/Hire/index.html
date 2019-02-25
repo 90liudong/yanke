@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin-s主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.ibox{
+			width: 90%;
+		    margin: 0 auto;
+		    margin-top: 30px;
+		}
+		.btn-group{
+			float: right;
+    		margin-top:5px;
+		}
+        .mform{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+        .input-group{
+            margin-top: 30px;
+        }
+        .btn{
+            margin-bottom: 5px;
+            width: 70px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+            <form class="mform" action="#" method="get">
+                <div class="input-group">
+                    <input name="key" type="text" placeholder="请输入搜索的招聘标题" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                        </div>
+            </form>
+	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>招聘信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>标题</td>
+                                    <td>招聘详情</td>
+                                    <td>发布时间</td>
+                                    <td>城市</td>
+                                    <td>职业</td>
+                                    <td>企业</td>
+                                    <td>企业照片</td>
+                                    <td>工资待遇</td>
+                                    <td>薪酬结算方式</td>
+                                    <td>地址</td>
+                                    <td>要求</td>
+                                    <td>需求的职位</td>
+                                    <td>薪酬待遇</td>
+                                   <!--  <td>有效期</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {foreach $hire as $h}
+								<tr>
+                                    <td>{$h.title}</td>
+                                    <td>{$h.intro}</td>
+                                    <td>{:date("y-m-d H:i",$h.time)}</td>
+                                    <td>{$h.aname}</td>
+                                    <td>{$h.fname}</td>
+                                    <td>{$h.ename}</td>
+                                    <td>
+                                     <img src="__STATIC__/enterprise/uploads/{$h.image}" style="width: 56px;height: 56px;margin-top: 5px;">
+                                    </td>
+                                    <td>{$h.salary}</td>
+                                    <td>{$h.balance}</td>
+                                    <td>{$h.addr}</td>
+                                    <td>{$h.requirement}</td>
+                                    <td>{$h.role}</td>
+                                    <td>{$h.welfare}</td>
+                                    <!-- <td>{$h.validity}</td> -->
+                                    <td><div"><a href="{:url('admin/Hire/update')}?id={$h.id}" class="btn btn-sm btn-success" type="button"><i class="fa fa-check"></i>&nbsp;修改</a>
+                                    <a href="{:url('admin/Hire/del')}?id={$h.id}" class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;删除</a>
+                                    </div></td>
+                                    
+                                </tr>
+                             {/foreach}  
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn-group">
+                                <a href="{:url('admin/Hire/index')}?page={$page-1}" type="button" class="btn btn-white"><i class="fa fa-chevron-left"></i>
+                                </a>
+                                <a href="{:url('admin/Hire/index')}?page={$page+1}" type="button" class="btn btn-white"><i class="fa fa-chevron-right"></i>
+                                </a>
+                            </div>
+                </div>
+                <!-- 全局js -->
+<script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+<script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+<script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+<script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+</body>
+</html>

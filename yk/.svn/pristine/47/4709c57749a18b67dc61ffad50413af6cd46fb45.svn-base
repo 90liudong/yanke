@@ -1,0 +1,187 @@
+<!--pages/self/self.wxml-->
+<view class='line'><image src='../../public/img/my/bg.png' class='bg'></image></view>
+<view class='head'>
+  <view class='head-img' ><image src='{{headimg}}' class="pp"></image></view>
+  <view style='margin-top:23%;'>{{nickname}}</view>
+  <view class='tel'>手机：{{tel}}<image style='position:absolute;left:77%;' src='../../public/img/my/modify.png' bindtap='toModify'></image></view>
+</view>
+<scroll-view class='content' scroll-y wx:if="{{utype == 1}}" >
+  <view class='option' bindtap='toOrder'>
+    <image style='float:left;' src='../../public/img/my/order.png'></image>
+   <span class="cc"> 订单管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='touser'>
+    <image style='float:left;'  src='../../public/img/my/user.png'></image>
+   <span class="cc"> 用户管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toincome'>
+    <image style='float:left;' src='../../public/img/my/sell.png'></image>
+   <span class="cc"> 收入管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toOnce' wx:if="{{utype == 1}}">
+    <image style='float:left;' src='../../public/img/my/shop.png'></image>
+   <span class="cc"> 个别管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='togoods' wx:if="{{utype == 1}}">
+    <image style='float:left;' src='../../public/img/my/ku.png'></image>
+   <span class="cc"> 我的库存</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='tomoney'>
+    <image style='float:left;' src='../../public/img/my/money.png'></image>
+   <span class="cc"> 资金管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord1'>
+    <image style='float:left;' src='../../public/img/my/pass.png'></image>
+   <span class="cc"> 登录密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord2'>
+    <image style='float:left;' src='../../public/img/my/pass2.png'></image>
+   <span class="cc"> 资金密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+  <view class='option' bindtap='toInvite'>
+    <image style='float:left;' src='../../public/img/my/sha.png'></image>
+   <span class="cc"> 我的邀请码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+  <view class='option' bindtap='toSell'>
+    <image style='float:left;' src='../../public/img/my/sha.png'></image>
+   <span class="cc"> 我的商品分享码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+</scroll-view>
+
+<view class='content2' wx:if="{{utype == 3 || utype == 2}}">
+  <view class='option' bindtap='toOrder'>
+    <image style='float:left;' src='../../public/img/my/order.png'></image>
+   <span class="cc"> 订单管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='touser' wx:if="{{utype == 2}}">
+    <image style='float:left;'  src='../../public/img/my/user.png'></image>
+   <span class="cc"> 用户管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toincome'>
+    <image style='float:left;' src='../../public/img/my/sell.png'></image>
+   <span class="cc"> 收入管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+
+    <view class='option' bindtap='tomoney'>
+    <image style='float:left;' src='../../public/img/my/money.png'></image>
+   <span class="cc"> 资金管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord1'>
+    <image style='float:left;' src='../../public/img/my/pass.png'></image>
+   <span class="cc"> 登录密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord2'>
+    <image style='float:left;' src='../../public/img/my/pass2.png'></image>
+   <span class="cc"> 资金密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+      <view class='option' bindtap='toInvite' wx:if="{{utype == 2}}">
+    <image style='float:left;' src='../../public/img/my/sha.png'></image>
+   <span class="cc"> 我的邀请码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toSell'>
+    <image style='float:left;' src='../../public/img/my/sha.png'></image>
+   <span class="cc"> 我的商品分享码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+</view>
+<view class='content2' wx:if="{{utype == 4}}">
+  <view class='option' bindtap='toOrder'>
+    <image style='float:left;' src='../../public/img/my/order.png'></image>
+   <span class="cc"> 订单管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+
+   <view class='option' bindtap='toincome'>
+    <image style='float:left;' src='../../public/img/my/sell.png'></image>
+   <span class="cc"> 收入管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='tomoney'>
+    <image style='float:left;' src='../../public/img/my/money.png'></image>
+   <span class="cc"> 资金管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord1'>
+    <image style='float:left;' src='../../public/img/my/pass.png'></image>
+   <span class="cc"> 登录密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toChagePassWord2'>
+    <image style='float:left;' src='../../public/img/my/pass2.png'></image>
+   <span class="cc"> 资金密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+    <view class='option' bindtap='toSell'>
+    <image style='float:left;' src='../../public/img/my/sha.png'></image>
+   <span class="cc"> 我的商品分享码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+</view>
+<view class='content2' wx:if="{{utype == 5}}">
+  <view class='option' bindtap='toOrder'>
+    <image style='float:left;' src='../../public/img/my/order.png'></image>
+   <span class="cc"> 订单管理</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+   
+    <view class='option' bindtap='toChagePassWord1'>
+    <image style='float:left;' src='../../public/img/my/pass.png'></image>
+   <span class="cc"> 登录密码</span>
+    <image style='float:right;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both'></view>
+  </view>
+
+</view>
+<view class='bottom'>
+  <view class='one' bindtap='tohome'>
+    <image src='../../public/img/home1.png' class='two'></image>
+    <view >首页</view>
+  </view>
+   <view class='one' >
+    <image src='../../public/img/my1.png' style='width:42rpx;' class='two'></image>
+    <view style='color:#59C3EB;'>我的</view>
+  </view>
+  <view style='clear:both;'></view>
+</view>

@@ -1,0 +1,208 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+.head{
+	font-size: 22px;
+	background-color: rgb(251,251,251);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	vertical-align: middle;
+}
+.head .fa-angle-left{
+	font-size: 40px;
+	vertical-align: middle;
+	margin-left:10px;
+}
+.dingdan{
+	margin-top: 8px;
+	text-align: center;
+	width: 80%;
+	display: inline-block;
+}
+.head .fa-user-o{
+	width: 6%;
+}
+.line-1{
+	padding: 2px;
+	
+}
+.line-1-left>img{
+    width: 15%;
+    border-radius: 100%;
+    margin-left: 3px;
+    vertical-align: middle;
+}
+.line-1-left>span{
+	margin-left: 3px;
+	font-size: 14px;
+}
+.line-1-left{
+	float: left;
+	margin-top: 2px;
+	width: 50%
+}
+.line-1-right{
+	float: right;
+	margin-right: 10px;
+}
+.line2{
+	margin-top: 5px;
+	background-color: rgb(251,251,251);
+	padding: 2%;
+}
+.line2 .left{
+	width: 25%;
+	float: left;
+	margin-left: 2%;
+
+}
+.line2 .right{
+	width: 67%;
+    float: right;
+    padding: 0 3%;
+}
+.data{
+	font-size: 14px;
+	color: black;
+	margin-top: 2 %;
+    margin-bottom: 5%;
+}
+.data-left{
+	float: left;
+	font-weight: bold;
+}
+.data-right{
+	float: right;
+}
+.data2{
+	font-size: 12px;
+	color: gray;
+}
+.line3{
+	margin-top:10px;
+	padding-bottom: 5px;
+	border-bottom:1px dashed rgba(207,218,221,1);
+}
+.line3 .line3-left{
+	float: left;
+	margin-left:5%;
+	font-size: 13px;
+}
+.line3 .line3-right{
+	float: right;
+	margin-right: 5%;
+}
+.line3 .line3-left>img{
+	width: 15px;
+	vertical-align: middle;
+}
+.line4{
+	font-size: 13px;
+	margin-top:10px;
+	padding-bottom: 10px;	
+	border-bottom:1px dashed rgba(207,218,221,1);
+	
+}
+.line4 .line4-1{
+	float: right;
+	margin-right: 5%;
+	color: rgb(157,157,157);
+}
+.line4 .line4-2{
+	display: inline-block;
+	font-weight: bold;
+	color: black;
+}
+.line5{
+	margin-top: 10px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 7px;
+}
+.line5>i{
+	font-size: 23px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+.box{
+	background-color: rgb(238,243,250);
+	border: 0;
+	padding: 1%;
+}
+.box1{
+	margin-top: 10px;
+	border: 0 ;
+	margin-bottom: 10px;
+}
+.box1 .box1-1{
+	color: rgb(157,157,157);
+	margin-left: 10px;
+	font-size: 14px;
+}
+.box1 .box1-1 .box1-2{
+	color: rgb(73,73,73);
+	margin-left: 5px;
+}
+.box2-1{
+	font-size: 14px;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+.box2-1 .box2-left{
+	float: left;
+	width: 19%;
+	color: rgb(157,157,157);
+}
+.box2-1 .box2-right{
+	float: right;
+	width: 81%;
+}
+.box2-1 .box2-right .box2-data{
+	
+}
+.box2-1 .box2-right .box2-data .box2-data1{
+	padding-bottom: 5px;
+}
+.box2-1 .box2-right .box2-data .box2-data2{
+	padding-bottom: 5px;
+	width: 95%
+}
+.box3{
+	font-size: 14px;
+	margin-top: 15px;
+    margin-left: 10px;
+}
+.box3 .box3-1{
+	
+}
+.box3 .box3-1 .box3-left{
+	float: left;
+	width: 70px;
+	color: #8f8989;
+}
+.box3 .box3-1 .box3-left .box3-right{
+	float: right;
+	width: 70%;
+	margin-left: 10px;
+}
+.butnn{
+	float: right;
+	margin-right: 5%;
+	background-color: white;
+	border: 1px solid rgba(181, 170, 170, 0.76);
+	outline: 0;
+	font-size: 12px;
+	color: rgb(51,51,51);
+}
+.box3 .box3-2{
+	float: left;
+	margin-top: 10px;
+	color: #8f8989;
+}
+.box3 .box3-2>span{
+	margin-left: 12px;
+	color: black;
+}

@@ -1,0 +1,160 @@
+// pages/self/self.js
+const app = getApp()
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    utype:0,
+    headimg:"",
+    nickname:"",
+    tel:""
+  },
+  tohome: function () {
+    wx.redirectTo({
+      url: '../homepage/homepage'
+    })
+  },
+  toOrder: function () {
+    wx.navigateTo({
+      url: '../order/order'
+    })
+  },
+  touser: function () {
+    wx.navigateTo({
+      url: '../user/user'
+    })
+  },
+  toOnce: function () {
+    wx.navigateTo({
+      url: '../once/once'
+    })
+  },
+  togoods: function () {
+    wx.navigateTo({
+      url: '../goods/goods'
+    })
+  },
+  toincome: function () {
+    wx.navigateTo({
+      url: '../income/income'
+    })
+  },
+  tomoney:function(){
+    wx.navigateTo({
+      url: '../money/money'
+    })
+  },
+  toChagePassWord1:function(){
+    wx.navigateTo({
+      url: '../password/password?type=1'
+    })
+  },
+  toChagePassWord2: function () {
+    wx.navigateTo({
+      url: '../password/password?type=2'
+    })
+  },
+  toInvite:function() {
+    wx.navigateTo({
+      url: '../invite/invite'
+    })
+  },
+  toSell: function () {
+    wx.navigateTo({
+      url: '../sell/sell'
+    })
+  },
+  toModify: function () {
+    if(this.data.utype==1){
+      wx.navigateTo({
+        url: '../tel/tel?flag=tel&tel=' + this.data.tel,
+      })
+    }else{
+      wx.navigateTo({
+        url: '../modify/modify'
+      })
+    }
+
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this
+    this.setData({
+      utype:app.globalData.usertype
+    })
+    //拿头像和手机和昵称
+    wx.request({
+      url: getApp().AppUrl + 'index.php/liudong/yanke/getUserInfo',
+      method: 'post',
+      data: {
+        token: app.globalData.token
+      },
+      success: function (e) {
+        var result = e.data
+        console.log(result)
+
+        that.setData({
+          headimg: result.headimg,
+          nickname: result.nickname,
+          tel: result.tel
+          
+        })
+      }
+
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  // onShareAppMessage: function () {
+  
+  // }
+})

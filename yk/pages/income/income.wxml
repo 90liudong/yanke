@@ -1,0 +1,77 @@
+<!--pages/income/income.wxml-->
+
+ <view class='head'>
+  <view class='op' bindtap='One'>出货记录  <view wx:if="{{line}}"   class='line'></view></view>
+  <view class='op' bindtap='Two'>统计 <view wx:if="{{!line}}" class='line'></view></view>
+  <view style='clear:both;'></view>
+</view>
+
+  <view style='width:100%;text-aline:center;' wx:if="{{len}}"> 
+  <image src='../../public/img/none.png' style='width:170rpx;height:163rpx;margin:165rpx 35%;margin-bottom:0;' ></image>
+  <view style='color:#898989;margin:24px auto;width:100%;text-align:center;font-size:28rpx;'>您暂时还没有出货记录！</view>
+</view>  
+
+ <view wx:if="{{sign}}" wx:for="{{record}}" wx:key="*this" class='line2'>
+  <image src='{{item.image}}' class='p3'></image>
+   <view class='content'>
+    <view class='work'>{{item.name}}</view>
+    <view class='kindnum'>
+      出货数量：<span class="se">{{item.num}}</span>
+    </view>
+    <view class='kindnum'>
+       订单利润：<span class="se">{{item.money}}</span>
+    </view>
+    <view class='kindnum'>
+       出货金额：<span class="se">{{item.price}}</span>
+    </view>
+    <view class='kindnum' >
+       出货时间：<span class="se">{{item.time}}</span>
+    </view>
+  </view>  
+  <view style='clear:both;'></view> 
+</view> 
+
+
+<view wx:if="{{!sign}}">
+  <view class='tongji'>
+    <view class='pad'> 
+     <view class='fu' style='color:#898989;'>选择时间：</view> 
+     <view class='fu date' ><view class="section">
+  <!-- <view class="section__title">日期选择器</view> -->
+  <picker mode="date" value="{{date}}" fields="month" start="2018-01-01" end="2050-12-31" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+</view></view>
+     <view class='btn1' bindtap='tongji'>确定</view>
+     <view style='clear:both;'></view>
+    </view>
+    <view style='height:3rpx;background-color:#bbb;'></view>
+    <view wx:if="{{utype==1}}" class='pad1' style='color:#898989;'>
+      收入金额：<span style='color:#313131;'>￥{{total}}</span>
+    </view>
+    <view wx:if="{{utype!=1}}" class='pad1' style='color:#898989;'>
+      利润总额：<span style='color:#313131;'>￥{{total}}</span>
+    </view>
+  </view>
+  <view wx:for="{{statistics}}" wx:key="*this"  class='line2'>
+    <image src='{{item.image}}' class='p3'></image>
+    <view class='content'>
+      <view class='work'>{{item.name}}</view>
+      <view class='kindnum'>
+        出货数量：<span class="se">{{item.num}}</span>
+      </view>
+      <view class='kindnum'>
+        订单利润：<span class="se">{{item.money}}</span>
+      </view>
+      <view class='kindnum'>
+        出货金额：<span class="se">{{item.price}}</span>
+      </view>
+
+    </view>  
+    <view style='clear:both;'></view> 
+  </view> 
+
+
+</view>

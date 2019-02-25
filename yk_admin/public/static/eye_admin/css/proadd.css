@@ -1,0 +1,36 @@
+.top{
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+.product_pic{
+	vertical-align: top;	
+}
+.inp{
+	overflow-x:hidden;
+	resize:none;
+	height:70px;
+}
+.name{
+	margin-bottom: 15px;
+}
+.name span{
+	vertical-align: top;
+}
+.i2{
+	margin-bottom: 10px;
+	width: 4%;
+}
+.same{
+	margin-bottom: 10px;
+}
+.goods_describe{
+	vertical-align: top;
+}
+.describe{
+	resize:none;
+	width: 30%;
+}
+.blank{
+	width: 20%;
+	height: 200px;
+}

@@ -1,0 +1,468 @@
+html,body{
+	padding: 0;
+	margin:0;
+	height:100%;
+	
+}
+.head-boxs{
+	background-color: rgb(135, 95, 35)
+}
+.head{
+	background-color: rgb(135, 95, 35)
+	width:100%; 
+}
+.head i{
+	font-size: 35px;
+	margin-left: 7px;
+    vertical-align: middle;
+    width: 5px;
+    float: left;
+    margin-top: 5px;
+    color: white;
+ }
+.head .box1{
+	display: inline-block;
+    width: 68%;
+    position: relative;
+    margin-top: 7px;
+    float: left;
+    margin-left: 20px;
+}
+.head .box1 i{
+	position: absolute;
+    left: 17px;
+    top: 5px;
+    color: gray;
+    font-size: 15px;
+}
+.head .box1 input{
+	background-color: rgb(227,224,216);
+	width: 80%;
+    margin-left: 9px;
+    padding-left: 33px;
+    border-radius: 15px;
+    margin-top: 4px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+    height: 17px;
+}
+.head .box2{
+	position: relative;
+}
+.head .box2 .btn{
+	color:white;
+	background-color: transparent;
+    border: 1px solid white;
+	font-size: 12px;
+	position: absolute;
+	top: 15px;
+}
+.head .box2>img{
+	position: absolute;
+    width: 30px;
+    top: 9px;
+    right: 2px;
+}
+.line1{
+	border-bottom: 1px solid rgba(174, 153, 153, 0.38);
+    padding-bottom: 8px;
+}
+.line1 img{
+	width: 14%;
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 52px;
+    float: left;
+}
+.line1 .line1-date span{
+	font-size: 13px;
+	display: block;
+	color: white;
+}
+.line1 .line1-date .line1-1{
+	float: left;
+	width: 67%;
+	margin-left: 5px;
+    margin-top: 8px;
+    border-right: 1px solid rgba(184, 166, 166, 0.24);
+}
+.line1 .line1-date .line1-1 .line1-2{
+	margin-top: 14px;
+    padding: 13px;
+    overflow: hidden;
+    position: relative;
+    width: 84%;
+    float: right;
+    right: 1px;
+}
+.line1 .line1-date .line1-1 .line1-2 span{
+	font-size: 12px;
+	width: 270px;
+	height: 18px;
+}
+.line1 .line1-date .line1-1 .line1-2 .run{
+	position: absolute;
+	top: 2px;
+}
+.line1 .line1-date .line1-1>span{
+	font-size: 15px;
+    display: block;
+    color: #f1ebeb;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.line1 .line1-date .date-right{
+	float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+    text-align: center;
+}
+.line1 .line1-date .date-right i{
+	font-size: 25px;
+	color: white;
+}
+.line2{
+	border-bottom: 1px solid white;
+	padding: 4px 0;
+}
+.line2 .line2-left{
+	float: left;
+}
+.line2 .line2-left img{
+	width: 15px;
+	margin-left: 5px;
+	margin-top :5px;
+}
+.line2 .line2-left span{
+	font-size: 12px;
+    color: white;
+    vertical-align: text-top;
+}
+.line2 .line2-right{
+	float: right;
+	margin-right: 10px;
+}
+.line2 .line2-right span{
+	font-size: 12px;
+    color: white;
+}
+.line2 .line2-right i{
+	width: 6px;
+	color: white;
+	vertical-align: baseline;
+}
+.bottom-box{
+	background-color: white;
+	height: 100%;
+}
+.line3{
+	background-color: white;
+	text-align: center;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(167, 157, 157, 0.79);
+}
+.line3 span{
+	width: 33.33%;
+	text-align: center;
+	display: block;
+	float: left;
+	font-weight:bold;
+	font-size: 15px;
+	color: gray;
+
+}
+.line3 .tete{
+	font-weight: bold;
+	color: rgb(255,176,0);
+}
+.head-box{
+	float: left;
+	width: 22%;
+	background-color: rgb(234,234,234);
+}
+.head-box div{
+	padding: 13px;
+	font-size: 14px
+}
+#date_head{
+	font-size: 12px;
+    margin-top: 7px;
+    width: 75%;
+    float: right;
+    border-left: 2px solid rgb(219, 140, 42);
+    padding-left: 2px;
+}
+.active{
+	background-color : white;
+	font-weight: bolder;
+	text-align: center;
+}
+.bodys{
+	background-color: white;
+	 float: right;
+    width: 77%;
+}
+.bodys .line4{
+	background-color: white;
+	margin-top: 3%;
+}
+.bodys .line4 .imgs{
+	padding: 0 2%;
+	width: 32%;
+	float: left;
+}
+.bodys .line4 img{
+	width:100%;
+	height:70px;
+}
+.bodys .line4 .line4-head{
+	float: right;
+    width: 64%;
+}
+.bodys .line4 .line4-head .line4-right{
+
+}
+.bodys .line4 .line4-head .line4-right .discount{
+	font-size: 12px;
+    color: rgb(251, 78, 68);
+}
+.bodys .line4 .line4-head .line4-right .line4-date{
+	font-weight: bolder;
+    font-size: 15px;
+}
+.bodys .line4 .line4-head .line4-right .line4-1{
+    color: gray;
+    font-size: 12px;
+    margin:4px 0;
+}
+.bodys .line4 .line4-head .line4-right .line4-2{
+	width: 100%;
+    height: 28px;
+    position: relative
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-left{
+	float: left;
+	color: rgb(251, 78, 68);
+	font-size: 19px;	 
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-left .total{
+	display: inline-block;
+    color: gray;
+    font-size: 13px;
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right{
+	float: right;
+    margin-right: 8px;
+    font-size: 20px;
+    color: orange;
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right button{
+	color: orange;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    border: 0;
+    font-size: 20px;
+    outline: 0;
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right span {
+	color: black;
+    font-size: 17px;
+    padding: 0 8px;
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right .minus{
+	color: gray;
+	display: none; 
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right .plus{
+	display: inline-block;
+}
+.bodys .line4 .line4-head .line4-right .line4-2 .line5-right .mun{
+	display: none; 
+    color: black;
+    font-size: 16px;
+    margin: 0 3px;
+}
+.line6{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(6, 6, 6, 0.58);
+	height: 60px;
+}
+.line6 .line7-left{
+	float: left;
+	width: 15%;
+}
+.line6 .line7-left img{
+	width: 50px;
+    border-radius: 100%;
+    margin-top: -10px;
+    margin-left: 9px;
+}
+.line6 .line7-center{
+    float: left;
+    width: 40%;
+    margin-left: 8px
+}
+.line6 .line7-center .line7-top{
+    color: white;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.line6 .line7-center .line7-top span:first-child{
+	font-size: 22px;
+}
+.line6 .line7-center .line7-botton{
+	color: #a7a2a2;
+    font-size: 13px;
+}
+.line6 .line7-right{
+	float: right;
+	outline: 0
+}
+.line6 .line7-right button{
+	padding: 20px 35px;
+    background-color: #FFD161;
+    font-weight: bold;
+    font-size: 16px;
+	border: 0;
+	outline: 0;
+}
+.pro-name{
+	
+}
+.pro-name .pro-head{
+	text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    color: rgba(67, 59, 51, 0.81);
+}
+.pro-name .pro-head .Product{
+	color: #7f6447;
+}
+.pro1{
+	margin: 0 auto;
+	margin-top:18px;
+	color: #7f6447;
+}
+.pro-line1{
+	margin-left: 18px;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #7f6447;
+}
+.pro-line1 select {
+	margin: 15px;
+    border: 0;
+    background-color: white;
+    padding: 9px 22px;
+    border-radius: 6px;
+    width: 51%;
+    outline: 0;
+    font-size: 16px;
+    color: gray;
+}
+.changebig{
+	font-size: 16px;
+}
+.pro-line2{
+	margin-left: 18px;
+    margin-top: 5px;
+    font-size: 20px;
+    color: #7f6447;
+}
+.pro-line2 input{
+	margin: 15px;
+    border: 0;
+    background-color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    width: 51%;
+    outline: 0;
+    font-size: 15px;
+}
+.pro-line3 input{
+	margin: 15px;
+    border: 0;
+    background-color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    width: 51%;
+    outline: 0;
+    font-size: 15px;
+}
+.pro-line3{
+	margin-left: 18px;
+    margin-top: 5px;
+    font-size: 20px;
+    color: #7f6447;
+}
+.pro-line4{
+	margin-left: 18px;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #7f6447;
+}
+#cl{
+	margin-top: 10px;
+    height: 220px;
+    width: 85%;
+    margin-left: 6%;
+}
+#c{
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    padding: 9px;
+	color: white;
+    background-color: #ef2222;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+.pro-line5{
+	margin-left: 18px;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #c8b5a0;
+    text-align: center;
+	padding-bottom: 35px;
+    padding-top: 18px;
+}
+.pro-bottom{
+	padding: 3% 36%;
+    color: white;
+    background-color:#64ab5f;
+    border: 0;
+    border-radius: 19px;
+}
+.line8 {
+    width: 100%;
+}
+.line9 .sj{
+    width: 78%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 17px;
+    color: #615641;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c0b041;
+}
+.line9 .dm{
+    margin: 15px 25px;
+    font-weight: bold;
+}
+.line9 .poto{
+    width: 90px;
+    height: 80px;
+}

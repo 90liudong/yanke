@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>B1密码修改</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		    -webkit-appearance: none !important;
+		    margin: 0;
+		}
+		.inp{
+			width: 20%;
+		}
+    </style>
+</head>
+<body>
+        <div class="ibox-content" style="font-size: 15px;padding-bottom: 10px;padding-top: 10px;">
+            <i class="fa fa-area-chart"></i> <span>首页》</span><span>B1用户管理》</span><span>修改密码</span>
+        </div>
+        <div class="ibox-content">
+            <form class="form-horizontal" action="{:url('eye_admin1/users/modify')}" method="POST">
+                <div class="form-group">
+                    <input type="number" name="id" value="{$id}" style="display: none">
+                    <label class="col-sm-3 control-label">B1用户旧密码：</label>
+                    <div class="col-sm-8">
+                        <input type="password"  class="form-control inp" name="old_password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="id" value="{$id}" style="display: none">
+                    <label class="col-sm-3 control-label">B1用户新密码：</label>
+                    <div class="col-sm-8">
+                        <input type="password"  class="form-control inp" name="new_password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="id" value="{$id}" style="display: none">
+                    <label class="col-sm-3 control-label">确认密码：</label>
+                    <div class="col-sm-8">
+                        <input type="password"  class="form-control inp" name="confirm_password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        <button class="btn2" type="submit" style="display: none;">提交</button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-sm-offset-3 col-sm-8">
+                <button class="btn btn-sm btn-info btn1" >提交</button>
+                <a href="{:url('eye_admin1/users/users_B1')}"><button class="btn btn-sm btn-info" type="button">取消</button></a>
+            </div>
+        </div>
+	
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript">
+        $(".btn1").click(function(){
+            var b =$("input[name=old_password]").val()
+            var c =$("input[name=new_password]").val()
+            var d =$("input[name=confirm_password]").val()
+            if (b=="") {
+                alert("旧密码不能为空")
+            }else if(c==""){
+                alert("新密码不能为空")
+            }else if(d==""){
+                alert("确认密码不能为空")
+            }else{
+                $(".btn2").click()
+            }
+        })
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+	

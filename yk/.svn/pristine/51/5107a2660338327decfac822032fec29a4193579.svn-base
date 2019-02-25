@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view class='box'>
+  <image src='../../public/img/login.png' class='logo'></image>
+  <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>手机号码</text>
+    <input type='tel' maxlength='11' placeholder='请输入手机号码' placeholder-class="pp" class="inp" bindinput ="telInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>密码</text>
+    <input type='password' placeholder='请输入密码' placeholder-class="pp" class="inp" bindinput ="passwordInput"></input>
+  </view>
+  <view bindtap='tologin' class='login'>登录</view>
+  <view bindtap='toreg' class='redi'>还没账号？<view class='reg'>免费注册</view></view>
+</view>

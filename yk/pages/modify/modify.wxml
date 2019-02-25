@@ -1,0 +1,25 @@
+<!--pages/modify/modify.wxml-->
+ <view>
+  <view class='modify' bindtap='change'>
+    <view style='float:left;'>修改手机号码</view>
+    <view style='float:left;margin-left:19%;'>{{tel}}</view>
+    <image style='float:right;width:50rpx;height:50rpx;' src='../../public/img/my/back.png'></image>
+    <view style='clear:both;'></view>
+  </view>
+  <view class='modify' bindtap='change2'>
+    <view wx:if="{{addr && unit  }}" class='bb' >
+      <view style='float:left;'>修改地区和单位</view>
+      <image style='float:right;width:50rpx;height:50rpx;' src='../../public/img/my/back.png'></image>
+      <view style='clear:both;'></view>
+    </view>
+    <view wx:else  >
+      <view style='float:left;'>修改地区和单位</view>
+      <image style='float:right;width:50rpx;height:50rpx;' src='../../public/img/my/back.png'></image>
+      <view style='clear:both;'></view>
+    </view>
+    <view class='unit'>
+      <view>{{addr}}</view>
+      <view>{{unit}}</view>
+    </view>
+  </view>
+</view> 

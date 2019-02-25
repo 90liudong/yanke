@@ -1,0 +1,92 @@
+.line2{
+  padding:9px 12px;
+  box-shadow:1px 1px 8px 1px #ccc;
+  margin-top:20rpx;
+
+}
+.p3{
+ border:1px solid #ccc;
+  border-radius:4px;
+  width:180rpx;
+  height:180rpx;
+  overflow:hidden;
+  float:left;
+}
+.content{
+  float: left;
+  width:68%;
+  margin-left:5%;
+  font-size:34rpx;
+  color: #313131;
+}
+  .price{
+  float:right;
+  margin-top:12rpx;
+  font-size:35rpx;
+  color:#f7231f;
+}  
+.bian{
+  color:#898989;
+}
+/*.num{
+  float: left;
+  width: 40%;
+  margin-top:90rpx;
+
+} */
+.work{
+  white-space:nowrap;
+  overflow: hidden;
+  /* height: 100rpx; */
+   text-overflow: ellipsis; 
+}
+.work1{
+  white-space:normal;
+  overflow: hidden;
+  height: 94rpx;
+  /* text-overflow: ellipsis; */
+}
+.p4{
+  width:40rpx;
+  height:40rpx;
+  float:right;
+
+}
+.bottom{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  border-top: 1px solid #ccc;
+}
+.total{
+  float: left;
+  width: 68%;
+  text-align: center;
+  padding:25rpx 0;
+}
+.pay{
+  float: left;
+  width: 32%;
+  padding:25rpx 0;  
+  text-align: center;
+  background-color: #59C3EB;
+  color: white;
+}
+.traffic{
+  font-size:25rpx;
+  color:#313131;
+}
+.pt{
+  margin-top:38rpx;
+}
+.time{  
+    font-size:25rpx;
+    float:right;
+    padding-top:7rpx;   
+}
+.price1{
+  color:#f7231f;
+  float:left;
+}

@@ -1,0 +1,39 @@
+<!--pages/order/order.wxml-->
+
+<!-- 没有订单时 -->
+ <view style='width:100%;text-aline:center;' wx:if="{{len}}"> 
+  <image src='../../public/img/none.png' style='width:170rpx;height:163rpx;margin:165rpx 35%;margin-bottom:0;' ></image>
+  <view style='color:#898989;margin:24px auto;width:100%;text-align:center;font-size:28rpx;'>您暂时还没有订单！</view>
+</view> 
+
+ <view class='line2' wx:for="{{orders}}" wx:key="*this" data-id="{{index}}" bindtap='toDetail'>
+  <image src='{{item.image}}' class='p3'></image>
+ <!-- 有快递信息时  -->
+   <view class='content' wx:if="{{item.tracking_number!=0}}">
+    <view class='work'>{{item.name}}</view>
+    <view class='traffic'>
+      <view style='margin-top:14rpx;'><span class="bian">快递单号：</span>{{item.tracking_number}}</view>
+      <view style='margin-top:10rpx;'>
+        <view style='float:left;'><span class="bian">配送方式：</span>{{item.tracking}}</view>
+        <view style='float:right;'><span class="bian">商品数量：</span>{{item.num}}</view></view>  
+        <view style='clear:both;'></view>
+      </view>
+    <view class='price'>
+      实付款：￥{{item.price}}
+    </view>
+  </view>  
+  <!-- <view style='clear:both;'></view>  -->
+ <!-- 有订单没快递信息时  -->
+
+  <view class='content' wx:if="{{item.tracking_number==0}}">
+    <view class='work1'>{{item.name}}</view>
+    <view class='pt'>
+      <view class='price1'>￥{{item.price}}</view>
+      <view class= 'time bian ' >下单时间：{{item.time}}</view>
+      <view style='clear:both;'></view>
+    </view>
+  </view>
+  <view style='clear:both;'></view> 
+</view> 
+
+ 

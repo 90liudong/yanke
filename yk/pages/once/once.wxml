@@ -1,0 +1,60 @@
+<!--pages/once/once.wxml-->
+<!-- 没有时 -->
+   <view wx:if="{{status == 2}}" style='width:100%;text-aline:center;'> 
+  <image src='../../public/img/noneshop.png' style='width:170rpx;height:163rpx;margin:165rpx 35%;margin-bottom:0;' ></image>
+  <view style='color:#898989;margin:24px auto;width:100%;text-align:center;font-size:28rpx;'>您暂时还没有添加商品，快去添加吧！</view>
+</view>   
+<view wx:if="{{status == 1}}" wx:key="*this">
+  <view  wx:for="{{check}}">
+    <view wx:if="{{item.edit}}" style='float:left;' class='se'>
+      <image src='{{item.src}}' data-id="{{index}}" style='width:36rpx;height:36rpx;' bindtap='check'></image>
+    </view>
+    <view wx:if="{{item.edit}}"  class='line2' >
+      <image src='{{item.image}}' class='p3'></image>
+        <view class='content'>
+        <view class='work1'>{{item.name}}</view>
+        <view class='pt'>
+          <view class='price1'>￥{{item.retail_price}}</view>
+          <view style='clear:both;'></view>
+        </view>
+      </view>
+      <view style='clear:both;'></view> 
+    </view>
+
+    <view wx:if="{{!item.edit}}"  class='line2' style='width:92%;'>
+      <image src='{{item.image}}' class='p3'></image>
+        <view class='content'>
+        <view class='work1'>{{item.name}}</view>
+        <view class='pt'>
+          <view class='price1'>￥{{item.retail_price}}</view>
+          <view style='clear:both;'></view>
+        </view>
+      </view>
+      <view style='clear:both;'></view> 
+    </view>
+    
+    <view style='clear:both;'></view>
+  </view>
+
+</view>
+<view style='height:180rpx;'></view>
+  <view wx:if="{{edit==0}}" class='bottom'>
+    <view class='total' bindtap='toEdit'>编辑</view>
+    <view class='pay' bindtap='toAdd'>添加</view>
+  </view>
+  <view wx:if="{{edit==1}}" class='bottom'>
+    <view   class='checkall' style=''>
+    <view style='float:left;'><image src='{{all}}'  style='width:36rpx;height:36rpx;' bindtap='checkAll'></image></view>
+    <view  style='float:left;margin-left:2%;'> 全选</view>
+    <view style='float:right;' bindtap='eq'>取消</view>
+    </view>
+    <view class='pay' style='width:100%;' bindtap='del'>移除</view>
+  </view>
+  <view wx:if="{{edit==2}}" class='bottom'>
+    <view   class='checkall' style=''>
+    <view style='float:left;'><image src='{{all}}'  style='width:36rpx;height:36rpx;' bindtap='checkAll'></image></view>
+    <view  style='float:left;margin-left:2%;'> 全选</view>
+    <view style='float:right;' bindtap='eq'>取消</view>
+    </view>
+    <view class='pay' style='width:100%;' bindtap='add'>添加</view>
+  </view>

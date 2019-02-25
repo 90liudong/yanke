@@ -1,0 +1,17 @@
+/* pages/money/money.wxss */
+.head{
+  width: 94%;
+  padding: 20rpx 3% 10rpx 3%;
+  background-color: #59c3eb;
+  color:white;
+}
+.money{
+  font-size:85rpx;
+  float:left;
+  margin-top:39rpx;
+}
+.list{
+  padding: 20rpx 3%;
+  font-size: 30rpx;
+  border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin- 主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .ibox{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .img-item{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>添加企业</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="form_basic.html#"></a>
+                                </li>
+                                <li><a href="form_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form role="form" action="{:url('admin/Hire/add')}" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                        <label>标题</label>
+                                        <input type="text" name="title" class="form-control"  style="height: 40px;">
+                                </div>
+                                <div class="form-group">
+                                        <label>招聘详情</label>
+                                        <input type="text" name="intro" class="form-control" style="height: 60px;">
+                                </div>
+                                <div class="form-group">
+                                        <label>城市</label>
+                                        <select type="text" name="area_id" class="form-control" style="height: 35px;">
+                                        {foreach $area as $a}
+                                        <option value="{$a.id}">{$a.name}</option>
+                                        {/foreach}
+                                        </select> 
+                                </div>
+                                 <div class="form-group">
+                                        <label>职业</label>
+                                        <select type="text" name="profession_id" class="form-control" style="height: 35px;">
+                                        {foreach $profession as $profession}
+                                        <option value="{$profession.id}">{$profession.name}</option>
+                                        {/foreach}
+                                        </select> 
+                                </div>
+                                <div class="form-group">
+                                        <label>企业</label>
+                                        <select type="text" name="enterprise_id" class="form-control" style="height: 35px;">
+                                        {foreach $enterprise as $enterprise}
+                                        <option value="{$enterprise.id}">{$enterprise.name}</option>
+                                        {/foreach}
+                                        </select> 
+                                </div>
+                                 <div class="form-group">
+                                        <label>企业图片</label>
+                                        <img src="" style="width: 80px;height: 80px;display: block;" id="im" onclick="img()">
+                                        <input type="file" name="image" class="form-control" id="imgs" style="display: none;">
+                                       <!--  <div id="input-file" style="display:none;"></div>
+                                            <div class="p">
+                                                <img src="__STATIC__/img/potos.jpg" class="img-item" id="img">
+                                            </div>
+                                            <div class="trash">
+                                                <span class="del" type="button" onclick="delpicture()" >删除</span><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                        </div> -->
+                                        <div style="margin-top: 5px;"  onclick="img()"> 直接点击添加图片</div>
+                                </div>
+                                <div class="form-group" style="width:30%;">
+                                        <div>
+                                        <label>工资待遇</label>
+                                        </div>
+                                        <input type="number" name="salary1" class="form-control" style="width: 48%;float:left;"><span style="text-align: center;">-</span><input type="number" name="salary2" class="form-control" style="width: 48%;float: right;">
+                                        <div style="clear: both;"></div>
+                                </div>
+                                 <div class="form-group">
+                                        <label>薪酬结算方式</label>
+                                        <select  type="text" name="balance" class="form-control"  style="height: 45px;">
+                                        <option value="月薪">月薪</option>
+                                        <option value="周薪">周薪</option>
+                                        <option value="时薪">时薪</option>
+                                        <option value="日薪">日薪</option>
+                                        </select>
+                                </div>
+                                 <div class="form-group">
+                                        <label>地址</label>
+                                        <input type="text" name="addr" class="form-control"  style="height: 45px;">
+                                </div>
+                                 <div class="form-group">
+                                        <label>要求</label>
+                                        <input type="text" name="requirement" class="form-control" style="height: 70px;" placeholder="(年龄/性别/学历/经验)">
+                                </div>
+                                 <div class="form-group">
+                                        <label>需求的职位</label>
+                                        <input type="text" name="role" class="form-control"  style="height: 45px;">
+                                </div>
+                                 <div class="form-group">
+                                        <label>薪酬待遇</label>
+                                        <input type="text" name="welfare" class="form-control" style="height: 70px;width: 40%;">
+                                </div>
+                                 <!--  <div class="form-group">
+                                        <label>发布有效期</label>
+                                        <select type="text" name="validity" class="form-control"  style="height: 45px;">
+                                        <option value="30天">30天</option>
+                                        <option value="3个月">3个月</option>
+                                        <option value="6个月">6个月</option>
+                                        <option value="1个月">12个月</option>
+                                        <option value="24个月">24个月</option>
+                                        </select>
+                                </div> -->
+                    
+                              
+                                    <div>
+                                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" style="margin-bottom: 0px;width: 85px;margin-top: 30px"><strong>添加</strong>
+                                        </button>
+                                        <label>
+                                            <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <script type="text/javascript">
+                    function localView(from) {
+                        var file = from.files[0]
+                        var url = null ;
+                        if (window.createObjectURL!=undefined) { 
+                            url = window.createObjectURL(file) ;
+                        } else if (window.URL!=undefined) 
+                            {
+                                url = window.URL.createObjectURL(file);
+                            } else if (window.webkitURL!=undefined) 
+                                { 
+                                    url = window.webkitURL.createObjectURL(file) ;
+                                }
+                        return url;
+                    }
+                    function img(){
+                        $("#imgs").click();
+                        $("#imgs").change(function(){
+                        var url = localView(this);
+                        $("#im").attr('src',url);
+                    })
+                    }  
+                </script>
+
+         <!-- 全局js -->
+                <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+                <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+                <script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                <script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+                <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+                    <!-- 自定义js -->
+                <script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+                <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+                <!-- <script type="text/javascript">
+                        $(function(){
+                            var index = 1;
+                            $("#img").click(function(){
+                                $("#input-file").append('<input id="file'+index+'" class="push2" type="file" name="image[]">')
+                                $("input[id=file"+index+"]").click()
+                                index++
+                                if(index>=4){
+                                    $("#img").css("display","none")
+                                }
+                            })
+                            $(document).on("change","#input-file input",function(){
+                                var url = localView(this)
+                                console.log(url)
+                                $(".p").prepend('<img src="'+url+'" class="img-item push" >')
+                            })
+                        })
+
+                        function delpicture(){
+                            $('.push').remove();
+                            $('.push2').remove(); 
+                            $(".p").prepend('<img src="__STATIC__/img/potos.jpg" class="img-item push" >')
+                        }
+
+                        function localView(from) {
+                            var file = from.files[0]
+                            var url = null ;
+                            if (window.createObjectURL!=undefined) { 
+                                url = window.createObjectURL(file) ;
+                            } else if (window.URL!=undefined) {
+                                url = window.URL.createObjectURL(file) ;
+                            } else if (window.webkitURL!=undefined) { 
+                                url = window.webkitURL.createObjectURL(file) ;
+                            }
+
+                            return url
+                        }
+
+                </script> -->
+
+</body>
+</html>

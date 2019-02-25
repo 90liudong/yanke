@@ -1,0 +1,67 @@
+<!--pages/shoping/shoping.wxml-->
+<view class='line1' >
+  <image src='../../public/img/addr.png' class='p1'></image>
+  <!-- 没有收货信息时 -->
+   <view wx:if="{{!haveaddr}}" class='ii'>收货信息</view> 
+  <!-- 有时 -->
+  <view wx:if="{{haveaddr}}" class='addr'>
+    <view><span>{{name}}</span><span style="margin-left:8%;color:313131;">{{tel}}</span></view>
+    <view class='two'>{{addr}}</view>
+  </view>
+
+  <image bindtap='toedit' src='../../public/img/change.png' class='p2'></image>
+  <view style='clear:both;'></view>
+</view>
+<view><image src='../../public/img/banma.png' style='width:100%;height:5px'></image></view>
+<view class='line2'>
+  <image src='{{shop.image}}' class='p3'></image>
+  <view class='content'>
+    <view class='work'>{{shop.name}}</view>
+    <view class='price' style="margin-top: 76rpx;" wx:if="{{direct && goods==0}}">
+      <!-- <view style='color:#f7413f;'>优惠价：<span>￥89.00</span></view> -->
+      <view style='font-size:29rpx;color:#535353;margin-top:16rpx;'>零售价：<span>￥{{shop.retail_price}}</span></view>
+      <view style='clear:both;'></view>
+    </view>
+    <view class='price' wx:if="{{!direct || goods}}">
+      <view style='color:#f7413f;'>优惠价：<span>￥{{shop.coupon_price}}</span></view>
+      <view style='font-size:29rpx;color:#535353;margin-top:14rpx;'>零售价：<span>￥{{shop.retail_price}}</span></view>
+      <view style='clear:both;'></view>
+    </view>
+    <view class='num'>
+      <image src='../../public/img/push.png' bindtap='plus' class='p4' style='display:none;'></image>
+      <view style='float:right;margin:0 7%;'>x{{num}}</view>
+      <image src='../../public/img/jian1.png' bindtap='jian' class='p4' style='display:none;'></image>
+       <view style='clear:both;'></view>
+    </view>
+  <view style='clear:both;'></view>
+    
+  </view>
+  <view style='clear:both;'></view>
+</view>
+<view class='bottom'>
+  <view class='total'>总价：<span style="color:#f7413f;">￥{{total}}</span></view>
+  <view class='pay' bindtap='pay'>微信支付</view>
+</view>
+
+<!-- 浮层 -->
+ <view wx:if='{{edit}}' class='fu'>
+  <view class='center'>
+    <view class='fu-head'>收货信息</view>
+    <view class='info'>
+      <view class='all'>
+        <span class="op">收货人姓名：</span><input placeholder="请输入收货人姓名"  bindinput ="nameinput" value='{{name}}' placeholder-class='pp' class='inp1'></input>      
+        <view style='clear:both;'></view>          
+      </view>
+      <view class='all'> 
+        <span class="op">收货人电话：</span><input placeholder="请输入收货人电话"  bindinput ="telinput" placeholder-class='pp' value='{{tel}}'  class='inp1'></input>      
+        <view style='clear:both;'></view>          
+      </view>
+      <view class='all2'>
+        <span class="op">收货人地址：</span><textarea placeholder-class='pp'  bindinput ="addrinput"  placeholder="请输入收货人地址" value='{{addr}}' class='inp1 inp2'></textarea>      
+        <view style='clear:both;'></view>          
+      </view>
+    </view>
+    <view class='sure' bindtap='sureedit'>确定</view>
+  </view>
+  <view class='xx' bindtap='eqedit'><image src="../../public/img/x.png" style='width:50rpx;height:50rpx;'></image></view>
+</view> 

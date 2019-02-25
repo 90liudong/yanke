@@ -1,0 +1,45 @@
+<!--pages/detail/detail.wxml-->
+<!-- 患者进来看见的 -->
+  <view class='detail' wx:if="{{utype ==5}}">
+ <image src='../../public/img/odbg.png' class='bg'></image> 
+ <view class='content'>
+    <view style='margin-top:120rpx;'>收货人姓名：<span class="se">{{order.addr.name}}</span></view>
+    <view>收货人电话：<span class="se">{{order.addr.tel}}</span></view>
+    <view class='addr'>收货人地址：<span class="se" >{{order.addr.addr}}</span></view>
+    <view style='margin-top:60rpx;'>订单编号：<span class="se">{{order.code}}</span></view>
+    <view>下单时间：<span class="se">{{order.time}}</span></view>
+    <view style='margin-top:80rpx;'>配送方式：<span class="se">{{order.tracking}}</span></view>
+    <view  wx:if="{{order.tracking_number!=0}}">快递单号：<span class="se">{{order.tracking_number}}</span></view>
+    <view wx:if="{{order.tracking_number==0}}">快递单号：<span class="se" >无</span></view>
+    <view style='margin-top:86rpx;'>商品单价：<span class="se">{{order.unit_price}}</span></view>
+    <view>购买数量：<span class="se">{{order.num}}</span></view>
+    <view>订单金额：<span class="se">{{order.price}}</span></view>
+ </view>
+</view>  
+<!-- 代理进来看见的 -->
+ <view class='detail' wx:if="{{utype !=5}}">
+ <image src='../../public/img/odbg1.png' class='bg1'></image> 
+ <view class='content'>
+    <view class='goods'>
+      <image src='{{order.image}}' class='simg'></image>
+      <view class='state'>
+          {{order.name}}
+      </view>
+      <view style='clear:both;'></view>
+    </view>
+    <view style='margin-top:11%;'>
+    <view >昵称：<span class="se">{{order.nickname}}</span></view>
+    <view>手机：<span class="se">{{order.tel}}</span></view>
+    <view style='margin-top:12%;'>订单编号：<span class="se">{{order.code}}</span></view>
+    <view>下单时间：<span class="se">{{order.time}}</span></view>
+    <view style='margin-top:12%;' >终端售价：<span class="se">{{order.unit_price}}</span></view>
+    <view>出货数量：<span class="se">{{order.num}}</span></view>
+    <view >出货金额：<span class="se">{{order.price}}</span></view>
+    <view style='margin-top:11.5%;' wx:if="{{utype !=1}}">单件利润：<span class="se">{{order.unit_profit}}</span></view>
+    <view style='margin-top:11.5%;' wx:if="{{utype ==1}}">单件收入：<span class="se">{{order.unit_profit}}</span></view>
+    
+    <view  wx:if="{{utype !=1}}">订单利润：<span class="se">{{order.money}}</span></view>
+    <view  wx:if="{{utype ==1}}">订单收入：<span class="se">{{order.money}}</span></view>
+   </view> 
+ </view>
+</view> 

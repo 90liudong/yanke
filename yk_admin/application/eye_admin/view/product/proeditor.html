@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/proadd.css">
+	<script type="text/javascript" src="__STATIC__/eye_admin/jquery-3.2.1.js"></script>
+	<title>编辑商品信息</title>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/eye_admin/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/eye_admin/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/eye_admin/lang/zh-cn/zh-cn.js"></script>
+
+	<style type="text/css">
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		    -webkit-appearance: none !important;
+		    margin: 0;
+		}
+		.btn{
+			width: 7%;
+			background-color: white;
+			border-radius: 3px;
+			border:1px solid gray;
+			margin-right: 2%;
+		}
+		.blank{
+			width: 30%;
+    		height: 200px;
+		}
+	</style>
+</head>
+<body>
+	{foreach $items as $item}
+	<form action="{:url('eye_admin/product/editor')}" method="POST" enctype="multipart/form-data">
+		<div class="top">
+			<span class="product_pic">商品图片：</span>
+			<img src="__STATIC__/uploads/product_pic/{$item.image}" class="blank">
+			<input type="file" name="picture" class="pic" style="display:none;">
+		</div>
+		<div class="name">
+			<span>商品名称：</span>
+			<textarea class="inp" name="mytextarea" placeholder="多行输入">{$item.name}</textarea>
+		</div>		
+		<div class="same">出货价①（元）：<input type="number" name="pri1" value="{$item.sell_price1}"  style="width: 6%;" onmousewheel="return false;"></div>
+		<div class="same">出货价②（元）：<input type="number" name="pri2" value="{$item.sell_price2}"  style="width: 6%;" onmousewheel="return false;"></div>
+		<div class="same">零售价（元）：<input type="number" name="pri3" value="{$item.retail_price}"  style="width: 6%;" onmousewheel="return false;"></div>
+		<div class="same">优惠价（元）：<input type="number" name="pri4" value="{$item.coupon_price}"  style="width: 6%;" onmousewheel="return false;"></div>
+		<div class="goods_describe">
+			<label class="form-label col-xs-4 col-sm-2" style="vertical-align: top;"></span>商品详情：</label>
+			<div class="text" style="    display: inline-block;"> 
+			    <script id="editor" type="text/plain" style="width:375px;height:300px;">{$item.detail}</script>
+			</div>
+		</div>
+		<input type="text" name="id" value="{$id}" style="display: none;">		
+		<input type="text" name="sdetail" value="" style="display: none;">
+		<input type="submit" name="sub" style="display: none;">				
+	</form>
+	<button class="btn sub">提交</button>
+	<a href="{:url('eye_admin/product/promanage')}"><input type="submit" name="" value="取消" class="btn"></a>
+	{/foreach}
+
+	<script type="text/javascript">
+	   var ue = UE.getEditor('editor');
+		function clearNoNum(obj){ 
+		    // obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符  
+		    // obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的  
+		    obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$","."); 
+		    obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+		    //只能输入两个小数  
+		    //以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+		    if(obj.value.indexOf(".")< 0 && obj.value !=""){ 
+		        obj.value= parseFloat(obj.value); 
+		    } 
+		}
+
+		//获取商品详情框的内容,并放入隐藏的输入框
+		function getContent() {
+	        var arr = [];     
+	        arr.push(UE.getEditor('editor').getContent());
+	        $("input[name=sdetail]").val(arr);
+	    }
+
+		//传入input type=file的选择器，返回图片路径
+		function localView(from){
+        var file = from.files[0]
+        var url = null ;
+        if (window.createObjectURL!=undefined) { 
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { 
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url
+    	}
+
+    	//将上传的图片进行本地预览
+		$(".pic").change(function(){
+			var src =localView(this);
+			$(".blank").attr("src",src);
+		})
+
+		//模拟点击
+		$(".blank").click(function(){
+    		$(".pic").click();       
+    	})
+
+    	//点击表单外的提交，调用function，让隐藏的提交按钮点击一下 提交整个表单
+	    $(".sub").click(function(){
+	    	//a出货价① b出货价②  c 零售价 d 优惠价 e 商品名称 f 商品详情  g 上传图片的input框
+	    	var a=$("input[name=pri1]").val()
+    		var b=$("input[name=pri2]").val()
+    		var c=$("input[name=pri3]").val()
+    		var d=$("input[name=pri4]").val()
+    		var e=$(".inp").val()
+    		a = parseFloat(a)
+    		b = parseFloat(b)
+    		c = parseFloat(c)
+    		d = parseFloat(d)
+    		getContent();
+    		console.log(a,b,c,d,e)
+    		var f=$("input[name=sdetail]").val();
+    		var g =$("input[name=picture]").val()
+    		if (a=="") {
+    			alert("出货价①不能为空")
+    		}else if(b==""){
+    			alert("出货价②不能为空")
+    		}else if(c==""){
+    			alert("零售价不能为空")
+    		}else if(d==""){
+    			alert("优惠价不能为空")
+    		}else if(e==""){
+    			alert("商品名称不能为空")
+    		}else if(f==""){
+    			alert("商品详情不能为空")
+    		}else if(a<=0||b<=0||c<=0||d<=0){
+    			alert("价格不能小于等于0")
+    		}else if(a>=b||a>=c||a>=d){
+    			alert("出货价①不能高于或等于其他价格")
+    		}else if(b>c||b>d){
+    			alert("出货价②不能高于优惠价或零售价")
+    		}else if(d>c){
+    			alert("优惠价不能高于零售价")
+    		}else{
+			    $("input[name=sub]").click()
+    		}				
+		})
+	    	
+		function MouseWheel(event) {
+		    event = event || window.event;
+		    event.preventDefault();
+		}
+
+
+	</script>
+</body>
+</html>

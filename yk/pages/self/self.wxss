@@ -1,0 +1,102 @@
+/* pages/self/self.wxss */
+.line{
+  width: 100%;
+  height: 260rpx;
+  background-color: #59C3EB;
+}
+.bg{
+  width:100%;
+height:100%;
+
+}
+.head{
+  width: 90%;
+  height: 280rpx;
+  background-color: white;
+  box-shadow:0px 1px 8px 1px #ccc;
+  /* border:  1px solid #ccc; */
+  border-radius:5px;
+  position: absolute;
+  top: 40rpx;
+  left: 5%;
+  text-align:center;
+
+}
+.head-img{
+  position:absolute;
+  width:160rpx;
+  overflow:hidden;
+  height:160rpx;
+  border-radius:50%;
+  top:-38rpx;
+  left:238rpx;
+  padding:6px;
+  background-color: white;
+}
+.pp{
+  width:100%;
+  height:160rpx;
+  display:inline-block;
+  overflow:hidden;
+  border-radius:50%;
+
+}
+.tel{
+  color:#aaa;
+  font-size:35rpx;
+  /* margin-top:2%; */
+
+}
+.content{
+  width:90%;
+  height: 700rpx;
+  margin:12% 0 5% 5%;
+  box-shadow:0px 1px 8px 1px #ccc;
+  border-radius:5px;
+
+}
+.content2{
+  width:90%;
+  margin:12% 0 5% 5%;
+  box-shadow:0px 1px 8px 1px #ccc;
+  border-radius:5px;
+
+}
+.option{
+  padding:10px 15px;
+  border-bottom:1px solid #ccc;
+
+}
+.cc{
+  float:left;
+  margin-left:6%;
+  font-size:35rpx;
+}
+image {
+width:46rpx;
+height:52rpx;
+display:inline-block;
+overflow:hidden;
+
+}
+.bottom{
+  width:100%;
+  border-top:1px solid #ccc;
+  height:110rpx;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:white;
+
+}
+.one{
+  width:50%;
+  float:left;
+  text-align:center;
+  font-size:28rpx;
+  margin-top:1%;
+}
+.two{
+  width: 50rpx;
+  height: 54rpx;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin- 主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.ibox{
+			width: 90%;
+		    margin: 0 auto;
+		    margin-top: 30px;
+		}
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><修改企业信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="form_basic.html#"></a>
+                                </li>
+                                <li><a href="form_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form role="form" action="{:url('admin/Enterprise/update')}" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>企业名称</label>
+                                        <input type="text" name="name" class="form-control" value="{$ent.name}">
+                                        <label>公司类型</label>
+                                        <input type="text" name="type" class="form-control" value="{$ent.type}">
+                                        <label>公司地址</label>
+                                        <input type="text" name="addr" class="form-control" value="{$ent.addr}">
+                                        <!-- <label>联系人</label>
+                                        <input type="text" name="contact" class="form-control" value="{$ent.contact}">
+                                        <label>联系方式</label>
+                                        <input type="text" name="tel" class="form-control" value="{$ent.tel}"> -->
+                                        <label>公司详情</label>
+                                        <input type="text" name="intro" class="form-control" value="{$ent.intro}"  style="height: 70px;">
+                                        <input type="hidden" name="id" class="form-control" value="{$ent.id}">
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>修改</strong>
+                                        </button>
+                                        <label>
+                                            <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!-- 全局js -->
+<script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+<script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+<script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+<script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+    <!-- 第三方插件 -->
+<script src="__STATIC__/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

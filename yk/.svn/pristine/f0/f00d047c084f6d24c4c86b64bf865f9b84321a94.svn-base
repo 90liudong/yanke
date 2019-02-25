@@ -1,0 +1,50 @@
+<swiper class='lunbo' indicator-dots="{{indicatorDots}}" indicator-active-color="#59C3EB;" indicator-color="{{color}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image aa" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper> 
+<view class = "list">
+  商品列表
+</view>
+<view wx:if="{{utype != 5}}" >
+<view  wx:for="{{shop}}" wx:key="*this" class='shop' data-uid="{{item.uid}}" data-gid="{{item.gid}}" bindtap='todetail'>
+  <view class='simg'><image src='{{item.image}}' class='simage' ></image></view>
+  <view class='content'>
+    <view class='decri'>{{item.name}}</view>
+    <view class='price'>
+      ￥{{item.retail_price}}
+      <view wx:if="{{utype != 5}}" class='ku'>库存：{{item.num}}</view>
+    </view>
+  </view>
+  <view style='clear:both;'></view>
+</view>
+</view>
+<view wx:if="{{utype == 5}}" >
+<view  wx:for="{{shop}}" wx:key="*this" class='shop'  data-gid="{{item.id}}" bindtap='todetail'>
+  <view class='simg'><image src='{{item.image}}' class='simage' ></image></view>
+  <view class='content'>
+    <view class='decri'>{{item.name}}</view>
+    <view class='price'>
+      ￥{{item.retail_price}}
+      <view wx:if="{{utype != 5}}" class='ku'>库存：{{item.num}}</view>
+    </view>
+  </view>
+  <view style='clear:both;'></view>
+</view>
+</view>
+<view style='height:180rpx;'></view>
+<view class='bottom'>
+  <view class='one'>
+    <image src='../../public/img/home.png' class='two'></image>
+    <view style='color:#59C3EB;'>首页</view>
+  </view>
+   <view class='one' bindtap='toself'>
+    <image src='../../public/img/my.png' style='width:42rpx;' class='two'></image>
+    <view>我的</view>
+  </view>
+</view>
+<view class='gotop' bindtap='goTop'>
+  <image src='../../public/img/totop.png' style='width:100%;height:100%;'></image>
+</view>

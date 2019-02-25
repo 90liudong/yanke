@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/eye_admin/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="renderer" content="webkit">
+
+
+    <title>库存管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .increase{
+		    width: 20%;
+		    background: white;
+		    border: 1px solid gray;
+		    border-radius: 3px;
+        color: black;
+		}
+
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+   <div class="ibox-content" style="font-size: 15px;padding-bottom: 10px;padding-top: 10px;">
+      <i class="fa fa-area-chart"></i> <span>首页》</span><span>B1用户管理》</span><span>库存管理</span>
+    </div>
+  <form action="{:url('eye_admin1/users/stock_search')}" method="POST" style="display: inline-block;margin-top: 10px; margin-bottom: 10px; margin-left: 20px;">
+        <span>商品名称:</span>
+        {if condition="$search eq '0.07' "}
+        <input type="text" placeholder="请输入商品名称" class="input-sm" name="search" style="border: 1px solid gray;">
+        <input type="" name="id" style="display: none;">
+        {else /}
+        <input type="text" placeholder="请输入商品名称" class="input-sm" name="search" style="border: 1px solid gray;" value="{$search}">
+        <input type="" name="id" style="display: none;">
+        {/if}
+        <input type="submit" class="btn btn-primary btn-sm" value="搜索">
+  </form>
+
+	<div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>商品名称</th>
+                    <th>库存</th>
+                </tr>
+            </thead>
+        {foreach $items as $item}    
+            <tbody>
+                <tr>
+                    <td>{$item.i}</td>
+                    <td>{$item.name}</td>
+                    <td class="num" id="a{$item.gid}">{$item.num}</td>
+                    <td><button type="button" class="btn btn-primary add" data-toggle="modal" data-target=".incre" gid="{$item.gid}" uid="{$id}" num1="{$item.num}">增加</button></td>
+                    <td><button type="button" class="btn btn-primary dec" data-toggle="modal" data-target=".decre" gid="{$item.gid}" uid="{$id}" num1="{$item.num}">减少</button></td>
+                </tr>
+            </tbody>
+        {/foreach}
+        </table>
+    </div>
+    
+    <div id="page1" >
+     <div class="pagination bPage bPageRight">
+         <ul>
+             <li id="bPageList" class="disabled bPageList"><a>每页 <select id="bPageDropList"><option  value="5">5</option><option  value="10">10</option><option  value="15">15</option><option  value="20">20</option></select> 条</a></li>
+             <li id="bPageInfo" class="disabled bPageInfo"><a>当前显示第{$page}/{$maxPage}页（共{$amount}条记录）</a></li>
+
+             <li id="bPageFirstPage" class="bPageControlButton disabled"><a href='{$href}page=1&each={$each}&id={$id}&search={$search} '>首页</a></li>
+
+             <li id="bPagePreviousPage" class="bPageControlButton disabled"><a href="{$href}page={$page-1}&each={$each}&id={$id}&search={$search}">«</a></li>
+
+             <!-- <li class="active">< a href="">1</ a></li> -->
+             {foreach $pages as $p}
+             <li {if condition="$p eq $page"} class="active"{/if}><a href="{$href}page={$p}&each={$each}&id={$id}&search={$search}">{$p}</a></li>
+             {/foreach}
+
+             <li id="bPageNextPage" class="bPageControlButton"><a href="{$href}page={$page+1}&each={$each}&id={$id}&search={$search}">»</a></li>
+             <li id="bPageLastPage" class="bPageControlButton"><a href="{$href}page={$maxPage}&each={$each}&id={$id}&search={$search}">尾页</a></li>
+         </ul>
+     </div>
+    </div>  
+
+
+    <!-- 模态框 增加 -->
+    <div class="modal fade bs-example-modal-lg incre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">增加</h4>
+          </div>
+          <div class="modal-body">
+            <input type="number" name="num2" onmousewheel="return false;">
+            <input type="number" name="gid" style="display: none;">
+            <input type="number" name="id" style="display: none;">
+            <input type="number" name="num1" style="display: none;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary sure1" data-dismiss="modal" style="display: none;">确定</button>
+            <button type="button" class="btn btn-primary yes">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框 减少 -->
+    <div class="modal fade bs-example-modal-lg decre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">减少</h4>
+          </div>
+          <div class="modal-body">
+            <input type="number" name="num3" onmousewheel="return false;">
+            <input type="number" name="gid" style="display: none;">
+            <input type="number" name="id" style="display: none;">
+            <input type="number" name="num1" style="display: none;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary sure2" data-dismiss="modal">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+        //增加库存的功能
+        //点击增加 获取属性里的值再赋给三个隐藏的input框
+         $(".add").click(function(){
+            var id =$(this).attr('uid')
+            $("input[name=id]").val(id)
+            var gid =$(this).attr('gid') 
+            $("input[name=gid]").val(gid) 
+            var num1 =$(this).attr('num1')
+            $("input[name=num1]").val(num1)
+
+        })
+
+        //先获取隐藏的input框的值，点击增加用ajax把获得的数据传到控制器
+        $(".sure1").click(function(){
+            var sum
+            //num2 = 增加的库存数量
+            var num2 = $("input[name=num2]").val()
+            var id = $("input[name=id]").val()
+            var gid = $("input[name=gid]").val()
+            var num1 = $("input[name=num1]").val()
+            var url =  "{:url('eye_admin1/users/stock_add')}" ;
+            $.post(url,{num1:num1,num2:num2,id:id,gid:gid},function(a){
+               window.location.reload()
+            })
+            $("input[name=num2]").val("");
+        })
+
+        //减少库存的功能
+        //点击减少 获取属性里的值再赋给三个隐藏的input框
+         $(".dec").click(function(){
+            var id =$(this).attr('uid')
+            $("input[name=id]").val(id)
+            var gid =$(this).attr('gid') 
+            $("input[name=gid]").val(gid) 
+            var num1 =$(this).attr('num1')
+            $("input[name=num1]").val(num1)
+        })
+
+         //先获取隐藏的input框的值，点击增加用ajax把获得的数据传到控制器
+        $(".sure2").click(function(){
+            var sum
+            //num3 = 减少的库存数量
+            var num3 = $("input[name=num3]").val()
+            var id = $("input[name=id]").val()
+            var gid = $("input[name=gid]").val()
+            var num1 = $("input[name=num1]").val()
+            var url =  "{:url('eye_admin1/users/stock_decrease')}" ;
+            $.post(url,{num1:num1,num3:num3,id:id,gid:gid},function(a){
+               window.location.reload()
+            })
+            $("input[name=num3]").val("");
+        })
+
+        //选取几条数据为一页
+        $("#bPageDropList").val("{$each}")
+        $('#bPageDropList').change(function(){
+             var each = $('#bPageDropList option:selected').text();
+             var url = "{$href}"
+             var id ="{$id}"
+             var search="{$search}"
+             window.location.href=url+"&each="+each+"&id="+id+"&search="+search
+        })
+
+        var id =$(".add").attr('uid')
+        $("input[name=id]").val(id)
+
+        $(".yes").click(function(){
+          var k =$("input[name=num2]").val();
+          if (k<=0) {
+            alert("数量不能小于等于0");
+          }else{
+            $(".sure1").click();
+          }
+        })
+
+        function MouseWheel(event) {
+            event = event || window.event;
+            event.preventDefault();
+        }
+
+    </script>
+</body>
+</html>

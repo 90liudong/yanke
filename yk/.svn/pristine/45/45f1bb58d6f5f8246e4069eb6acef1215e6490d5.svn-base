@@ -1,0 +1,16 @@
+<!--pages/invite/invite.wxml-->
+<view class='one' wx:for="{{inv}}" wx:for-index="index" wx:for-item="item" wx:key="*this">
+  <image src='../../public/img/invbg.png' style='width:100%;height:230px;'></image>
+  <view class='head' wx:if="{{len==2 && index==0}}">我想邀请一名B1-2用户</view>
+   <view class='head' wx:if="{{len==2 && index==1}}">我想邀请一名B2用户</view>
+    <view class='head' wx:if="{{len==1}}">我想邀请一名B2用户</view>
+  <view class='center'>{{item}}</view>
+  <view class='copy' bindtap='copy1' data-id="{{index}}">点击复制邀请码</view>
+</view>
+
+<!-- <view class='one'>
+  <image src='../../public/img/invbg.png' style='width:100%;height:230px;'></image>
+  <view class='head'>我想邀请一名B2用户</view>
+  <view class='center'>qz23vs</view>
+  <view class='copy'>点击复制邀请码</view>
+</view> -->

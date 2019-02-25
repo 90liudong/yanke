@@ -1,0 +1,43 @@
+<!--pages/goods/goods.wxml-->
+
+<view wx:for="{{shop}}" wx:key="*this" class='line2'>
+  <image src='{{item.image}}' class='p3'></image>
+   <view class='content'>
+    <view class='work'>{{item.name}}</view>
+    <view class='kindnum'>
+       终端售价：<span class="se">{{item.retail_price}}</span>
+    </view>
+
+    <view class='kindnum'>
+       出货价：<span class="se">{{item.sell_price1}}</span>
+    </view>
+    <view class='kindnum'>
+       剩余库存：<span class="se">{{item.num}}</span>
+    </view>
+    <view class='kindnum' >
+       出货金额：<span class="se">{{item.sumprofit}}</span>
+    </view>
+  </view>  
+  <view style='clear:both;'></view> 
+</view>
+
+<!-- <view class='line2'>
+  <image src='../../public/img/logo.jpg' class='p3'></image>
+   <view class='content'>
+    <view class='work'>fkjs赶紧的枫蓝国际课讲了fjsdfkdjkfjd</view>
+    <view class='kindnum'>
+       终端售价：<span class="se">99.00</span>
+    </view>
+
+    <view class='kindnum'>
+       出货价：<span class="se">99.00</span>
+    </view>
+    <view class='kindnum'>
+       剩余库存：<span class="se">99.00</span>
+    </view>
+    <view class='kindnum' >
+       出货量：<span class="se">99.00</span>
+    </view>
+  </view>  
+  <view style='clear:both;'></view> 
+</view> -->

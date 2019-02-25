@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/load/load",
+    "pages/test/test",
+    "pages/homepage/homepage",    
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/detail/detail",
+    "pages/user/user",
+    "pages/once/once",
+    "pages/self/self",
+    "pages/invite/invite",
+    "pages/money/money",
+    "pages/tixian/tixian",
+    "pages/shop/shop",
+    "pages/password/password",
+    "pages/modify/modify",
+    "pages/tel/tel",
+    "pages/goods/goods",
+    "pages/income/income",
+    "pages/shoping/shoping"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#59C3EB",
+    "navigationBarTitleText": "眼科之家",
+    "navigationBarTextStyle": "white"
+  }
+}

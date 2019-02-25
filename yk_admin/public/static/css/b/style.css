@@ -1,0 +1,161 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+.head{
+	border-bottom: 1px solid #eeeeee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+	width:100%;
+}
+.head .fa-left{
+	display: inline-block;
+}
+.a{ 
+	display: inline-block;
+    width: 71%;
+    position: relative;
+    margin: 7px;
+    margin-left: 7px;
+}
+.a>i{
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	color: gray;
+}
+.head img{
+	width: 10%;
+    padding-left: 10px;
+    margin-top: 5px;
+    height: 40px;
+    vertical-align: middle
+}
+.head input{
+	width: 100%;
+    border-radius: 15px;
+    border: 0;
+    background-color: rgba(214, 212, 212, 0.82);
+    padding-left: 35px;
+    height: 30px;
+    outline: 0;
+}
+.line1{
+	text-align: center;
+	font-weight: bold;
+    border-bottom: 1px solid #eee;
+    padding:10px 0;
+}
+.line2{
+	font-size: 13px;
+	margin: 0 auto;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0;
+}
+.line2 span{
+	text-align: center;
+	width: 25%;
+	display: block;
+	float: left;
+}
+.line2 span:first-child{
+	/*font-weight: bold;*/
+}
+.line2>span>i{
+	margin-left: 5px;
+}
+.line2 .t4{
+	text-align: center;
+}
+.line3{
+    margin-top: 10px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 15px;
+}
+.line3 .line3-1 .left{
+	width: 28%;
+	float: left;
+	margin-left: 2%;
+	height: 5%;
+}
+.line3 .line3-1 .right{
+	width: 66%;
+	float: right;
+	padding: 0 2%;
+}
+.line3 .line3-1 .right .title{
+	font-size: 16px;
+	font-weight: bold;
+}
+.data{
+	font-size: 12px;
+	color: gray;
+	margin-top: 4 %;
+    margin-bottom: 5%;
+}
+.data-left{
+	float: left;
+
+}
+.data-right{
+	float: right;
+}
+.data2{
+	font-size: 12px;
+	color: gray;
+}
+.line3-2{
+	margin-left: 32%;
+	width:66%;
+	font-size: 12px;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+.line3-2 img{
+	width: 15px;
+    vertical-align: middle;
+}
+.line3-3{
+	margin-left: 32%;
+	width:66%;
+	font-size: 12px;
+    margin-top: 5px;
+}
+.line4{
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 1000;
+}
+.line4 a{
+	text-align: center;
+    float: left;
+    width: 33.33%;
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+}
+.line4 i{
+	font-size: 29px;
+	margin-bottom: 5px;
+}
+.data-left .fa-star{
+	color: #FF9800;
+}
+.line5{
+	position: absolute;
+    bottom: 70px;
+    right: 0;
+    border: 1px solid #a08d8d;
+    padding: 5px 30px;
+    opacity: 1;
+}
+.line5-1{
+    font-size: 14px;
+}

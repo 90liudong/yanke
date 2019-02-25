@@ -1,0 +1,4 @@
+<!---->
+ <button type="primary" bindtap="listenerButton">显示loading</button>
+<!--默认隐藏-->
+<loading hidden="{{hiddenLoading}}">加载中，请稍等一会！！</loading> 

@@ -1,0 +1,148 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wxf35123e24d1f33f4",
+	"projectname": "%E7%9C%BC%E7%A7%91%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "homepage",
+					"pathName": "pages/homepage/homepage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "self",
+					"pathName": "pages/self/self",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "shop",
+					"pathName": "pages/shop/shop",
+					"query": "sid=1"
+				},
+				{
+					"id": -1,
+					"name": "shoping",
+					"pathName": "pages/shoping/shoping",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reg",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "once",
+					"pathName": "pages/once/once",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "password",
+					"pathName": "pages/password/password",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "invite",
+					"pathName": "pages/invite/invite",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "money",
+					"pathName": "pages/money/money",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tixian",
+					"pathName": "pages/tixian/tixian",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "goods",
+					"pathName": "pages/goods/goods",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "income",
+					"pathName": "pages/income/income",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "modify",
+					"pathName": "pages/modify/modify",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tel",
+					"pathName": "pages/tel/tel",
+					"query": ""
+				}
+			]
+		}
+	}
+}

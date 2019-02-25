@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>管理员账户</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .add{
+            float: right; 
+            margin-right: 5%;
+            margin-bottom: 
+            20px;margin-top: 20px;
+            border-radius: 3px solid red;
+        }
+        .editor{
+            background-color: rgb(33,163,250);
+            color: white;
+            border: 1px solid gray;
+            border-radius: 3px;
+            width: 50px;
+        }
+        .delete{
+            background-color: #f05050;
+            color: white;
+            border: 1px solid gray;
+            border-radius: 3px;
+            width: 50px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <input class="s1" name="" data="{$Think.session.user_type}" style="display: none;">
+    <input class="s2" name="" data="{$Think.session.username}" style="display: none;">
+
+    <!-- {$Think.session.user_type} -->
+    <button class="add btn btn-primary btn-sm">添加管理员</button>
+    <div class="ibox-content">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>管理员名称(即登录账号)</th>
+                    <th>所属角色</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            {foreach $items as $item}
+                <tr>
+                    <td>{$item.i}</td>
+                    <td>{$item.username}</td>
+                    {if condition = "$item.type eq 1"}
+                        <td>超级管理员</td>
+                    {else /}
+                        <td>管理员</td>
+                    {/if}
+                    {if condition = "$item.type neq 1"}
+                    <td>
+                        <button class="editor" data1="{$item.username}" data2="{$item.id}" data3="{$item.type}">修改</button>
+                        <button class="delete" data1="{$item.username}" data2="{$item.id}" data3="{$item.type}">删除</button>
+                    </td>
+                    {else /}
+                     <td>
+                        <button class="editor" data1="{$item.username}" data2="{$item.id}" data3="{$item.type}">修改</button>
+                    </td>
+                    {/if}
+                </tr>
+            {/foreach}    
+            </tbody>
+        </table>
+    </div>
+
+    
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+
+    <script type="text/javascript">
+        var cc;  var dd;
+        cc= $(".s1").attr("data") //session.user_type
+        dd= $(".s2").attr("data") //session.username
+        //编辑功能
+        $(".editor").click(function(){
+            var username = $(this).attr("data1")
+            var id =$(this).attr("data2")
+            if (username==dd||cc==1) {
+                window.location.href="{:url('eye_admin/admin/editor_view')}?id="+id
+            }else{
+                alert("您没有该权限");
+            }
+        })
+
+        //删除功能
+        $(".delete").click(function(){
+            var username = $(this).attr("data1")
+            var id =$(this).attr("data2")
+            if (cc==1) {
+                var res =confirm("确定要删除吗？")
+                if (res==true) {
+                    window.location.href="{:url('eye_admin/admin/delete')}?id="+id
+                }
+            }else{
+                alert("您没有该权限");
+            }
+        })
+
+        //添加功能
+        $(".add").click(function(){
+            if (cc==1) {
+                window.location.href="{:url('eye_admin/admin/add_view')}"
+            }else{
+                alert("您没有该权限")
+            }
+        })
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

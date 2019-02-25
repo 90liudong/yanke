@@ -1,0 +1,19 @@
+/* pages/set/set.wxss */
+.alerts{
+  width:70%;
+  margin:0 auto;
+  height:200rpx;
+  margin-top:230rpx;
+  line-height:200rpx;
+  font-size:30rpx;
+  text-align:center;
+  border:1px solid #59C3EB;
+  border-radius:10px;
+}
+.btn{
+  width:70%;
+  margin-top:73rpx;
+  background-color:#59C3EB;
+  color:white;
+
+}

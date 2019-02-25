@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>订单管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.select{
+			width: 115%;
+			border-radius: 3px;
+			padding-left: 10%;
+		}
+		.wechat_head{
+        width: 80%;
+        height: 40px;
+    }
+    .image{
+      width: 10%;
+    }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+	<div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>日期</th>
+                    <th>订单号</th>
+                    <th class="image">商品图标</th>
+                    <th>商品名称</th>
+                    <th>出货单价</th>
+                    <th>出货数量</th>
+                    <th>订单金额</th>
+                    <th>订单收入</th>
+                </tr>
+            </thead>
+        {foreach $items as $item}
+            <tbody>
+                <tr>
+                    <td>{$item.i}</td>
+                    <td>{$item.time}</td>
+                    <td>{$item.code}</td>
+                    <td><div class="fl"><img src="__STATIC__/uploads/product_pic/{$item.image}" class="wechat_head"></div></td>
+                    <td>{$item.name}</td>
+                    <td>
+                     <!--  {if condition="$item.type eq 2"}{$item.sell_price1}
+                      {elseif condition="$item.type eq 3"/}{$item.sell_price1}
+                      {elseif condition="$item.type eq 4"/}{$item.sell_price2}
+                      {else /} {$item.unit_price}
+                      {/if} -->
+                      {$item.unit_price}
+                    </td>
+                    <td>{$item.num}</td>
+                    <td>
+                      <!-- {if condition="$item.type eq 2"}{$item.sell_price1*$item.num}
+                      {elseif condition="$item.type eq 3"/}{$item.sell_price1*$item.num}
+                      {elseif condition="$item.type eq 4"/}{$item.sell_price2*$item.num}
+                      {else /} {$item.unit_price*$item.num}
+                      {/if} -->
+                      {$item.price}
+                    </td>
+                    <td>{$item.money}</td>
+                </tr>
+            </tbody>
+        {/foreach}
+        </table>
+    </div>
+    </div>
+     <div id="page1" >
+     <div class="pagination bPage bPageRight">
+         <ul>
+             <li id="bPageList" class="disabled bPageList"><a>每页 <select id="bPageDropList"><option  value="5">5</option><option  value="10">10</option><option  value="15">15</option><option  value="20">20</option></select> 条</a></li>
+             <li id="bPageInfo" class="disabled bPageInfo"><a>当前显示第{$page}/{$maxPage}页（共{$amount}条记录）</a></li>
+
+             <li id="bPageFirstPage" class="bPageControlButton disabled"><a href='{$href}page=1&each={$each}&id={$id}'>首页</a></li>
+
+             <li id="bPagePreviousPage" class="bPageControlButton disabled"><a href="{$href}page={$page-1}&each={$each}&id={$id}">«</a></li>
+             {foreach $pages as $p}
+             <li {if condition="$p eq $page"} class="active"{/if}><a href="{$href}page={$p}&each={$each}&id={$id}">{$p}</a></li>
+             {/foreach}
+
+             <li id="bPageNextPage" class="bPageControlButton"><a href="{$href}page={$page+1}&each={$each}&id={$id}">»</a></li>
+             <li id="bPageLastPage" class="bPageControlButton"><a href="{$href}page={$maxPage}&each={$each}&id={$id}">尾页</a></li>
+         </ul>
+     </div>
+    </div> 
+              
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=3"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+
+    <script type="text/javascript">
+           $(".select").click(function(){
+                var a =$(this).val();
+                if(a!=0){
+                    window.location.href="{:url('eye_admin/ods/ods_type')}?a="+a;
+                }
+                
+           })
+
+           //获取修改按钮里保存好的数据,放入模态框里隐藏的input框并随表单提交到后台
+           $(".edi").click(function(){
+             var code = $(this).attr("code");
+             var id =$(this).attr("uid");
+             $("input[name=id]").val(id);
+             $("input[name=code]").val(code);
+           })
+
+            $("#bPageDropList").val("{$each}")
+            $('#bPageDropList').change(function(){
+             var each = $('#bPageDropList option:selected').text();
+             var url = "{$href}"
+             var id = "{$id}"
+             window.location.href=url+"&each="+each+"&id="+id
+            })
+           
+    </script>
+
+</body>
+</html>

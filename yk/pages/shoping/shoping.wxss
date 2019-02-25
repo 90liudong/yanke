@@ -1,0 +1,177 @@
+/* pages/shoping/shoping.wxss */
+.line1{
+  width:92%;
+  padding:0 4%;
+  padding-bottom:5px;
+
+}
+.p1{
+  float:left;
+  width:26rpx;
+  height:33rpx;
+  margin-top:53rpx;
+}
+.p2{
+ float:right;
+  width:50rpx;
+  height:50rpx;
+  margin-top:43rpx;
+}
+.ii{
+  font-size:15px;
+  float:left;
+  margin-left:6%;
+  margin-top:48rpx;
+
+}
+.addr{
+  float:left;
+  font-size:30rpx;
+  width:81%;
+  margin-left:6%;
+  margin-top:15rpx;
+}
+.two{
+  margin-top:10rpx;
+  color:#535353;
+  max-height:80rpx;
+  overflow: hidden;
+}
+.line2{
+  padding:6px 12px;
+  box-shadow:1px 1px 8px 1px #ccc;
+  margin-top:20rpx;
+
+}
+.p3{
+ border:1px solid #ccc;
+  border-radius:4px;
+  width:180rpx;
+  height:180rpx;
+  overflow:hidden;
+  float:left;
+}
+.content{
+  float: left;
+  width:68%;
+  margin-left:5%;
+  font-size:34rpx;
+  color: #313131;
+}
+.price{
+  float:left;
+  width:60%;
+  margin-top:41rpx;
+}
+.num{
+  float: left;
+  width: 40%;
+  margin-top:90rpx;
+
+}
+.work{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.p4{
+  width:40rpx;
+  height:40rpx;
+  float:right;
+
+}
+.bottom{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  border-top: 1px solid #ccc;
+}
+.total{
+  float: left;
+  width: 64%;
+  /* text-align: center; */
+  padding:25rpx 0;
+  padding-left: 4%;
+}
+.pay{
+  float: left;
+  width: 32%;
+  padding:25rpx 0;  
+  text-align: center;
+  background-color: #59C3EB;
+  color: white;
+}
+.fu{
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  color:#313131;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.center{
+  text-align:center;
+  margin-top:84rpx;
+  background-color:white;
+  width:84%;
+  margin-left:8%;
+  color:#313131;
+  border-radius:6px;
+}
+.info{
+  border-top:1px solid #59C3EB;
+  border-bottom:1px solid #59C3EB; 
+   
+}
+.fu-head{
+  padding:12rpx;
+  font-size:33rpx;
+
+}
+.all{
+  padding-top:56rpx;
+}
+.all2{
+  padding-top:56rpx;
+  padding-bottom: 30rpx;
+}
+.op{
+  float:left;
+  font-size:26rpx;
+  margin-top:13rpx;
+  margin-left:40rpx;
+  color:#898989;
+
+}
+.inp1{
+  float:left;
+  text-align:left;
+  font-size:34rpx;
+  border-bottom:1px solid #ccc;
+  padding-left:14rpx;
+}
+.inp2{
+  width:61%;
+  border:1px solid #ccc;
+  height:160rpx;
+}
+.sure{
+  padding: 25rpx 0;
+  background-color: #59C3EB;
+  color: white;
+  border-bottom-right-radius:6px; 
+  border-bottom-left-radius:6px; 
+  
+}
+.pp{
+  color: #313131;
+}
+.xx{
+  position:absolute;
+  left:89%;
+  top:60rpx;
+
+}

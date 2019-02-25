@@ -1,0 +1,42 @@
+/* pages/invite/invite.wxss */
+/* page{
+  background-color: #ccc;
+} */
+.one{
+  width:96%;
+  margin-left:2%;
+  margin-top:30rpx;
+  position:relative;
+}
+.head{
+ position:absolute;
+  top:29rpx;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+.center{
+ position:absolute;
+  top:94rpx;
+  left:30%;
+  font-size:74rpx;
+  width:40%;
+  height:307rpx;
+  text-align:center;
+  /* background-color:#ccc; */
+  border-radius:5px;
+
+}
+.copy{
+  position:absolute;
+  top:420rpx;
+  left:78rpx;
+  background-color:#59C3EB;
+  color:white;
+  width:74%;
+  padding:10px;
+  font-size: 35rpx;
+  border-radius:46rpx;
+  text-align:center;
+
+}

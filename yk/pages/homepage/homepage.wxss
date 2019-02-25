@@ -1,0 +1,98 @@
+.aa{
+  width:100%;
+height:240px;
+display:inline-block;
+overflow:hidden;
+
+}
+.lunbo{
+  width: 100%;
+  height: 400rpx;
+  box-shadow:1px 1px 8px 1px #ccc;
+}
+.list{
+  display:block;
+  padding:3%;
+  box-shadow:1px 1px 8px 1px #ccc;
+  margin-top:3.5%;
+  font-size:32rpx;
+
+}
+.shop{
+  width:94%;
+  margin:2% 3%;
+  /* box-shadow:1px 1px 8px 1px #ccc; */
+  border-bottom:1px solid #ccc;
+  height:200rpx;
+
+}
+.simg{
+  width:26%;
+  float:left;
+  border-radius:5px;
+  border:1px solid #ccc;
+  height: 180rpx;
+
+}
+.simage{
+  width: 100%;
+  height:100%;
+  border-radius:4px;
+
+}
+.content{
+ float:left;
+  width:68%;
+  padding-left:5%;
+
+}
+.decri{
+  width:100%;
+  height:91rpx;
+  overflow:hidden;
+  font-size:33rpx;
+  Letter-spacing:1px;
+}
+.price{
+  color:red;
+  font-size:28rpx;
+  margin-top:11%;
+
+}
+.ku{
+  /* display:inline; */
+  margin-left:34%;
+  font-size:28rpx;
+  color:#bbb;
+  float:right;
+
+}
+.bottom{
+  width:100%;
+  border-top:1px solid #ccc;
+  height:110rpx;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:white;
+
+}
+.one{
+  width:50%;
+  float:left;
+  text-align:center;
+  font-size:28rpx;
+  margin-top:1%;
+}
+.two{
+  width: 50rpx;
+  height: 54rpx;
+}
+.gotop{
+  width:60rpx;
+  height:60rpx;
+  position:fixed;
+  top:1000rpx;
+  left:86%;
+
+}

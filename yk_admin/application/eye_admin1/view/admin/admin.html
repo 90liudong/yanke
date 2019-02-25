@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> 眼科之家后台</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .admin{
+                position: absolute;
+                top: 15px;
+                font-size: 20px;
+                left: 75px;
+        }
+    </style>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;">
+                                        <i class="fa fa-area-chart"></i>
+                                        <strong class="font-bold">眼科之家后台</strong>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element">hAdmin
+                        </div>
+                    </li>
+                    <li>
+                        <a class="J_menuItem"  href="{:url('eye_admin1/admin/administrator')}"><span class="nav-label">管理员账户</span></a> 
+                        <ul class="nav nav-second-level">
+                        </ul>                     
+                    </li> 
+                    <li>
+                        <a class="J_menuItem"  href="{:url('eye_admin1/slider/slider')}"><span class="nav-label">轮播图管理</span></a> 
+                        <ul class="nav nav-second-level">
+                        </ul>                       
+                    </li>
+                    <li>
+                        <a class="J_menuItem"  href="{:url('eye_admin1/product/promanage')}"><span class="nav-label">商品管理</span></a> 
+                        <ul class="nav nav-second-level">
+                        </ul>                     
+                    </li>    
+                    <li>
+                        <a href="#"><span class="nav-label">用户管理</span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/users/users_B1')}">B1用户</a>
+                            </li>
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/users/users_B1_2')}">B1-2用户</a>
+                            </li>
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/users/users_B2_1')}">B2-1用户</a>
+                            </li>
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/users/users_B2_2')}">B2-2用户</a>
+                            </li>
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/users/users_C1')}">C1用户</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="J_menuItem"  href="{:url('eye_admin1/ods/ods')}"><span class="nav-label">订单管理</span></a>
+                        <ul class="nav nav-second-level">
+                        </ul>                       
+                    </li>      
+                    <li>
+                        <a href="#"><span class="nav-label">资金管理</span></a> 
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/money/income')}">收入记录</a>
+                            </li>
+                            <li><a class="J_menuItem" href="{:url('eye_admin1/money/pickup')}">提现记录</a>
+                            </li>                                                       
+                        </ul>   
+                    </li>
+                    <li>
+                        <a href="{:url('eye_admin1/logout/logout_deal')}"><span class="nav-label">退出</span></a>
+                    </li> 
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#"><i class="fa fa-bars"></i></a>
+                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                            <div class="form-group">
+                                <span class="admin">欢迎登陆后台管理系统</span>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe id="J_iframe" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript" src="__STATIC__/eye_admin/js/index.js"></script>
+
+    <script type="text/javascript">
+
+
+    </script>
+
+    <!-- 第三方插件 -->
+    <!-- <script src="__STATIC__/eye_admin/js/plugins/pace/pace.min.js"></script> -->
+
+</body>
+
+</html>

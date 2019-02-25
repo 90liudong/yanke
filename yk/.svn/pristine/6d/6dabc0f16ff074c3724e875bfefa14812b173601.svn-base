@@ -1,0 +1,6 @@
+<!---->
+ <!-- <button type="primary" bindtap="listenerButton">显示loading</button> -->
+<!--默认隐藏-->
+ <loading hidden="{{hiddenLoading}}">加载中......</loading>  
+<!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" >授权登录</button>
+<view wx:else>请升级微信版本</view> -->

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>商品管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .inp{
+           width: 100%; 
+           border-radius: 3px;
+           border:1px solid gray;
+           
+        }
+        .search{
+            border-radius: 3px;
+            border:1px solid gray;
+            color: black;
+            height: 25px;
+        }
+        .add{
+            width: 7%;
+            border-radius: 3px;
+            border:1px solid gray;
+            color: black;
+            margin-left: 12%;
+            height: 25px;
+            text-decoration: none;
+            position: relative;
+            left: 20%;
+            top: -25px;
+        }
+        .pic{
+            width: 20%;
+        }
+        .name{
+            max-width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ibox-content">
+        <form action="{:url('eye_admin/product/search')}" method="POST">
+            商品名称:
+            <input type="text" name="search" placeholder="输入商品名称">
+            <input type="submit" value="搜索" class="search btn btn-primary btn-sm">
+        </form>
+        <a href="{:url('eye_admin/product/proadd')}"><button class="add btn btn-primary btn-sm">添加商品</button></a>
+    </div>
+    <div class="ibox-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th class="name">商品名称</th>
+                        <th class="pic">商品图片</th>
+                        <th>出货价①</th>
+                        <th>出货价②</th>
+                        <th>终端售价</th>
+                        <th>终端优惠价</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {foreach $items as $item} 
+                    <tr>
+                        <td>{$item["i"]}</td>
+                        <td class="name">{$item["name"]}</td>
+                        <td><img src="__STATIC__/uploads/product_pic/{$item.image}" style="width: 60%; height: 120px;" =""></td>
+                        <td>{$item["sell_price1"]}</td>
+                        <td>{$item["sell_price2"]}</td>
+                        <td>{$item["retail_price"]}</td>
+                        <td>{$item["coupon_price"]}</td>
+                        <td>
+                        <a href="{:url('eye_admin/product/proeditor')}?id={$item.id}"><button class="inp btn-info">编辑</button></a>
+                        </td>
+                        <td><button class="inp btn-danger" data="{$item.id}">删除</button>
+                        </td>
+                        
+                    </tr>
+                {/foreach}    
+                </tbody>
+            </table>
+    </div>
+   <div id="page1" >
+     <div class="pagination bPage bPageRight">
+         <ul>
+             <li id="bPageList" class="disabled bPageList"><a>每页 <select id="bPageDropList"><option  value="5">5</option><option  value="10">10</option><option  value="15">15</option><option  value="20">20</option></select> 条</a></li>
+             <li id="bPageInfo" class="disabled bPageInfo"><a>当前显示第{$page}/{$maxPage}页（共{$amount}条记录）</a></li>
+
+             <li id="bPageFirstPage" class="bPageControlButton disabled"><a href='{$href}page=1&each={$each}&search={$search}'>首页</a></li>
+
+             <li id="bPagePreviousPage" class="bPageControlButton disabled"><a href="{$href}page={$page-1}&each={$each}&search={$search}">«</a></li>
+
+             <!-- <li class="active">< a href="">1</ a></li> -->
+             {foreach $pages as $p}
+             <li {if condition="$p eq $page"} class="active"{/if}><a href="{$href}page={$p}&each={$each}&search={$search}">{$p}</a></li>
+             {/foreach}
+
+             <li id="bPageNextPage" class="bPageControlButton"><a href="{$href}page={$page+1}&each={$each}&search={$search}">»</a></li>
+             <li id="bPageLastPage" class="bPageControlButton"><a href="{$href}page={$maxPage}&each={$each}&search={$search}">尾页</a></li>
+         </ul>
+     </div>
+    </div> 
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+
+    <script type="text/javascript">
+        $("#bPageDropList").val("{$each}")
+        $('#bPageDropList').change(function(){
+             var each = $('#bPageDropList option:selected').text();
+             var url = "{$href}"
+             var search = "{$search}"
+             window.location.href=url+"&each="+each+"&search="+search
+        })
+
+        $(".btn-danger").click(function(){
+            var id=$(this).attr('data')
+            var res =confirm("确定要删除吗？")
+            if(res==true){
+                window.location.href="{:url('eye_admin/product/delete')}?id="+id
+            }else{
+
+            }
+        }) 
+
+    </script>
+
+</body>
+
+</html>

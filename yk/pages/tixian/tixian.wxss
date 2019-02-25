@@ -1,0 +1,85 @@
+/* pages/tixian/tixian.wxss */
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.tel{
+  border:1px solid #ccc;
+  border-radius:4px;
+  padding-left:10px;
+  margin-top: 3%;
+}
+.code{
+  width:45%;
+  float: left;
+  margin-top:2%;
+
+}
+.box{
+  width: 80%;
+  padding: 0 10%;
+}
+.message{
+  margin-top:5%;
+  font-size:13px;
+}
+.pp{
+  color: black;
+  font-size:18px;
+}
+.inp{
+  padding:10px 0;
+  font-size:18px;
+  border-bottom:1px solid #ccc;
+}
+.login{
+ background-color:#59C3EB;
+  color:white;
+  text-align:center;
+  padding:3% 0;
+  margin-top:15%;
+  font-size:46rpx;
+  border-radius:3px;
+}
+.redi{
+  font-size:13px;
+  float:right;
+  margin-top:10%;
+
+}
+.reg{
+  display:initial;
+  color:#59C3EB;
+
+}
+.getcode{
+  background-color:#59C3EB;
+  width:30%;
+  padding:10px;
+  text-align:center;
+  font-size:33rpx;
+  color:white;
+  border-radius:2px;
+  position:absolute;
+  right:0;
+  top:32%;
+
+}

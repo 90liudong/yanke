@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>轮播图管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.blank{
+            width: 400px;
+            height: 250px;
+        }
+        .btn{
+            width: 50px;
+            background-color: rgb(33,163,250);
+            color: white;
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin-left: 20%;
+        }
+        .suggest{
+            position: relative;
+            left: -23%;
+            top: 25px;
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+	<div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">轮播图片</th>
+                    <th>
+                        <form action="{:url('eye_admin/slider/upload_deal')}" enctype="multipart/form-data" method="POST">
+                          <input type="file" name="picture" class="pic">
+                          <input type="submit"  class="confirm" style="display: none;">
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="height:400px;">预览 <span class="suggest">建议大小比例1:1</span></td>
+                    <td>
+                    <img src="" class="blank">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn1">提交</button>
+    <a href="{:url('slider')}">
+        <button class="btn">取消</button>
+    </a>
+       
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0">
+    
+    </script>
+    <script type="text/javascript">
+        //传入input type=file的选择器，返回图片路径
+        function localView(from){
+        var file = from.files[0]
+        var url = null ;
+        if (window.createObjectURL!=undefined) { 
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { 
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url
+        } 
+
+        //将上传的图片进行本地预览
+        $(".pic").change(function(){
+            var src =localView(this);
+            $(".blank").attr("src",src);
+        })
+
+        $(".btn1").click(function(){
+            var a=$("input[name=picture]").val();
+            if (a=="") {
+                alert("请选择图片上传")
+            }else{
+                $(".confirm").click();
+            }
+        })
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* pages/user/user.wxss */
+.head{
+  width: 100%;
+  color: #313131;
+  padding: 28rpx 0 0 0;
+  font-size: 30rpx;
+  box-shadow:1px 1px 10px 1px #ccc;
+}
+.op{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.line{
+  height: 2px;
+  margin-top:22rpx;
+  background-color: #59c3eb;
+}
+
+.one{
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx;
+  box-shadow:1px 1px 10px 1px #ccc;
+}
+.img{
+  width: 180rpx;
+  height: 180rpx;
+  float: left;
+}
+.content{
+  float: left;
+  width: 69%;
+  margin-left: 3%;
+  font-size: 24rpx;
+  color: #313131;
+
+}
+.weixin{
+  float: left;
+  font-size: 30rpx;
+  margin-top:10rpx;
+}
+.zhe{
+  float:right;
+  color: #59c3eb;
+  font-size:28rpx;
+  width:60%;
+  margin-top:10rpx;
+
+
+
+}
+.info{
+  margin-top: 40rpx;
+}
+.p1{
+  width:50rpx;
+  height:50rpx;
+  float:right;
+  margin-top:-10rpx;
+
+}
+.se{
+  color: #898989;
+}
+.fu{
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  color:#313131;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.center{
+ text-align:center;
+  margin-top:193rpx;
+  background-color:white;
+  width:58%;
+  margin-left:21%;
+  color:#313131;
+  border-radius:6px;
+
+}
+.info2{
+  border-top:1px solid #59C3EB;
+  border-bottom:1px solid #59C3EB; 
+   
+}
+.fu-head{
+  padding:12rpx;
+  font-size:33rpx;
+
+}
+.zhong{
+  float:left;
+  width:70%;
+
+}
+.zhekou{
+  border-bottom: 1px solid #ccc;
+  width:50%;
+  margin-left:43%;
+ 
+}
+.sure{
+  padding: 13rpx 0;
+  background-color: #59C3EB;
+  color: white;
+  border-bottom-right-radius:6px; 
+  border-bottom-left-radius:6px; 
+  
+}
+.pp{
+  color: #313131;
+}
+.xx{
+  position:absolute;
+  left:76%;
+  top:166rpx;
+
+}

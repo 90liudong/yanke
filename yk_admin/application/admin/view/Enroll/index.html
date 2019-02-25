@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin-s主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.ibox{
+			width: 90%;
+		    margin: 0 auto;
+		    margin-top: 30px;
+		}
+		.btn-group{
+			float: right;
+    		margin-top:5px;
+		}
+        .mform{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+        .input-group{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+            <form class="mform" action="{:url('admin/enroll/search')}" method="get">
+                <div class="input-group">
+                    <input name="key" type="text" placeholder="请输入搜索的招聘广告" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                        </div>
+            </form>
+	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>企业信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <td>报名人名字</td>
+                                    <td>报名的账号</td>
+                                    <td>招聘信息标题</td>
+                                    <td>联系电话</td>
+                                    <td>qq</td>
+                                    <td>报名时间</td>
+                                    <td>学校</td>
+                                    <td>其他</td>
+                                    <td>状态</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {foreach $enroll as $e}
+								<tr>
+                                    <td>{$e.id}</td>
+                                    <td>{$e.name}</td>
+                                    <td>{$e.uname}</td>
+                                    <td>{$e.ht}</td>
+                                    <td>{$e.tel}</td>
+                                    <td>{$e.q}</td>
+                                    <td>{:date("y-m-d H:i",$e.time)}</td>
+                                    <td>{$e.school}</td>
+                                    <td>{$e.qt}</td>
+                                    <td class="status" value="{$e.status}">{$e.status}</td>
+                                    <td><a href="{:url('admin/enroll/status')}?id={$e.id}" class="btn btn-sm btn-success"  type="button"><i class="fa fa-check"></i>&nbsp;已读</a></td>
+                                </tr>
+                            {/foreach}    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn-group">
+                                <a href="{:url('admin/enroll/index')}?page={$page-1}" type="button" class="btn btn-white"><i class="fa fa-chevron-left"></i>
+                                </a>
+                                <a href="{:url('admin/enroll/index')}?page={$page+1}" type="button" class="btn btn-white"><i class="fa fa-chevron-right"></i>
+                                </a>
+                            </div>
+                </div>
+                <!-- 全局js -->
+<script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+<script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+<script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+<script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+</body>
+</html>

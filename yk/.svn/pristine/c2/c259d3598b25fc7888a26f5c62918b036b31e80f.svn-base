@@ -1,0 +1,34 @@
+/* pages/invite/invite.wxss */
+.one{
+  width:96%;
+  margin-left:2%;
+  margin-top:30rpx;
+  position:relative;
+}
+.head{
+ position:absolute;
+  top:40rpx;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+.center{
+  position:absolute;
+  top:140rpx;
+  left:214rpx;
+  background-color:#bbb;
+  font-size:74rpx;
+}
+.copy{
+  position:absolute;
+  top:307rpx;
+  left:78rpx;
+  background-color:#59C3EB;
+  color:white;
+  width:74%;
+  padding:10px;
+  font-size: 35rpx;
+  border-radius:46rpx;
+  text-align:center;
+
+}

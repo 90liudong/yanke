@@ -1,0 +1,32 @@
+<!--pages/money/money.wxml-->
+<view class='head'>
+  <view>
+    收入余额（元）
+  </view>
+  <view class="money" >{{money}}</view>
+  <view style='float:right;margin-top:16rpx;'>
+    <image src='../../public/img/tixian.png' bindtap='totixian' style='width:116rpx;height:116rpx'> </image>
+  </view>
+  <view style='clear:both;'></view>
+</view>
+
+
+<view class='list' wx:for="{{water}}" wx:key="*this">
+  <view>
+  <view style='float:left;' wx:if="{{item.m_status==0}}">提现</view>
+    <view style='float:left;' wx:if="{{item.m_status==1}}">收入</view>
+    <view style='float:right;color:#898989;'>{{item.time}}</view>
+    <view style='clear:both;'></view>
+  </view>  
+    <view>
+    <view style='float:left;' wx:if="{{item.m_status==0}}">{{item.money}}</view>
+    <view style='float:left;' wx:if="{{item.m_status==1}}">+{{item.money}}</view>
+    
+    <view style='float:right;'wx:if="{{item.m_status==0 && item.status==0}}" >申请中</view>
+    <view style='float:right;'wx:if="{{item.m_status==0 && item.status==1}}" >成功</view>
+    <view style='float:right;'wx:if="{{item.m_status==0 && item.status==2}}" >失败</view>
+    <view style='float:right;'wx:if="{{item.m_status==1}}" >成功</view>
+    
+    <view style='clear:both;'></view>
+  </view>  
+</view>

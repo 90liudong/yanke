@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class='box'>
+<scroll-view scroll-y style="height: 860rpx;margin-top:2%;">
+  <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>手机号码</text>
+    <input type='tel' maxlength='11' placeholder='请输入手机号码' placeholder-class="pp" class="inp" bindinput ="telInput"></input>
+  </view>
+<view class='message' style='position:relative'>
+    <text style='fone-size:18rpx;color:#ccc'>验证码</text>
+    <view style='width:50%;'><input type='tel' maxlength='6' placeholder='请输入验证码' placeholder-class="pp" class="inp" bindinput ="codeInput"></input></view>
+    <view class='getcode' wx:if="{{!isShow}}"  bindtap='getCode1' >获取验证码</view>
+    <view class='getcode' wx:if="{{isShow}}"   >{{sec}}S</view>
+  </view>
+  
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>密码</text>
+    <input type='password' placeholder='请输入密码' placeholder-class="pp" class="inp" bindinput ="passwordInput1"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>确认密码</text>
+    <input type='password' placeholder='请再次输入密码' placeholder-class="pp" class="inp" bindinput ="passwordInput2"></input>
+  </view>
+  <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>邀请码(选填)</text>
+    <input type='tel' maxlength='7' placeholder='请输入邀请码' placeholder-class="pp" class="inp" bindinput ="invcodeInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>地区</text>
+    <input type='tel'  placeholder='请输入您所在地区' placeholder-class="pp" class="inp" value='{{addr}}' bindinput ="addrInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>单位</text>
+    <input type='tel'  placeholder='请输入你所在单位' placeholder-class="pp" class="inp" bindinput ="unitInput"></input>
+  </view>
+</scroll-view>
+  <view bindtap='toreg' class='login'>马上注册</view>
+  <view bindtap='tologin' class='redi'>已有账号？<view class='reg'>直接登录</view></view>
+  </view>
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!canIUse}}"  > 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class='message'>
+    <input placeholder="请输入手机号" class='tel' bindinput ="telInput" auto-focus/>
+    <view class='code' >
+      <input placeholder="请输入验证码" class='tel' />
+    </view>
+    <view class='code' style='margin-left:10%;'>
+      <view class='get-code' wx:if="{{!isShow}}"  bindtap='getCode' style='padding-top:4%;'>获取验证码</view>
+      <view class='get-code' wx:if="{{isShow}}" style='padding-top:4%;'>{{sec}}秒后重新发送</view>
+    </view>
+    <view style='clear:both'></view>
+    <input placeholder="请输入密码" class='tel' />
+    <input placeholder="再次输入密码" class='tel' />
+    <input placeholder="再次输入密码" class='tel' />
+  </view>
+</view> -->

@@ -1,0 +1,37 @@
+<!--pages/shop/shop.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='img' wx:if="{{one}}">
+  <image src='{{shop.image}}' style='width:100%;height:100%;'></image>
+</view>
+<view wx:if="{{one}}" class='content'>
+  <view class='p'>{{shop.name}}</view>
+  <view wx:if="{{utype != 5 && utype != 3}}">零售/优惠价：<span style="text-decoration:line-through;">￥{{shop.retail_price}}</span>/<span style="color:#F51E1B">{{shop.coupon_price}}</span></view>
+
+  <view wx:if="{{utype == 5 || utype == 3 }}" style="color:#F51E1B;font-size:35rpx;">优惠价：<span >￥{{shop.coupon_price}}</span></view>
+    <view wx:if="{{utype == 5 || utype == 3}}" style="color:#898989;font-size:30rpx;margin-top:20rpx;">零售价：<span>￥{{shop.retail_price}}</span></view>
+  <view style='color:#9A9A9A;padding-top:2%;' wx:if="{{utype == 1}}">出货价：￥{{shop.sell_price1}}</view>
+  <view style='color:#9A9A9A;padding-top:2%;' wx:if="{{utype == 2}}">出货价：￥{{shop.sell_price2}}</view>
+  <view class='ku'  wx:if="{{utype != 5}}">库存：{{shop.num}}</view>
+  <view style="clear:both"></view>
+  <view class='line'></view>
+   <view class='xia'> 商品详情</view> 
+  <view wx:if="{{two}}" >
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+  <view style='height:100px;'></view>
+</view>
+
+ <button wx:if="{{utype ==1||utype ==2||utype ==3||utype ==4 }}" class='btn' open-type='share'>分享到微信</button> 
+
+<!-- <view wx:if="{{utype !=5 }}" bindtap='toshoping' style='padding:20rpx 0;' class='btn' >立即购买</view> -->
+
+<view class='bottom' wx:if="{{utype ==5 }}"> 
+  <view class='one' bindtap='tohome'>
+    <image src='../../public/img/home1.png' class='two'></image>
+    <view >首页</view>
+  </view>
+   <view   style='float:left;width:70%;'>
+     <view  bindtap='toshoping' style='padding:24rpx 0;font-size:40rpx;' class='btn1' >立即购买</view> 
+  </view>
+  <view style='clear:both;'></view>
+</view>

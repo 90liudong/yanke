@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>订单管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+		.select{
+			width: 60px;
+			border-radius: 3px;
+			padding-left: 5%;
+		}
+		.wechat_head{
+		    width: 80%;
+		    height: 55px;
+		}
+    .image{
+      width: 10%;
+    }
+    .nosend{
+      color: white;
+      background-color: red;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0;
+    }
+    .havesend{
+      color: white;
+      background-color: blueviolet;
+    }
+    </style>
+</head>
+<body>
+  <div class="ibox-content">
+        <form action="{:url('eye_admin/ods/ods_time_search')}" method="POST" style="display: inline-block;margin-left: 10%; margin-right: 10%;">
+        订单日期:
+        <input type="datetime-local" class="date1" name="date1" value="2018-01-01T00:00">
+        -
+        <input type="datetime-local" class="date2" name="date2" <?php echo  "value=".date('Y-m-d',time())."T".date('H:i',time());?>>
+        <input type="submit" class="btn btn-primary btn-sm" value="搜索">
+        </form>
+        订单号:
+        <form action="{:url('eye_admin/ods/code_search')}" method="POST" style="display: inline-block;">
+        <input type="text" placeholder="请输入订单号" class="input-sm" name="search" style="border: 1px solid gray;">
+        <input type="submit" class="btn btn-primary btn-sm" value="搜索">
+        </form>
+  </div>
+
+	<div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                 <form action="{:url('eye_admin/ods/ods_user')}" method="POST">
+                    <th>序号</th>
+                    <th style="width:8%;">日期</th>
+                    <th>订单号</th>
+                    <th>
+                      <select class="select" id="unit">
+                        <option value="0" >类型</option>
+                        <option value="5" >全部</option>
+                        <option value="1" >B1</option>
+                        <option value="2" >B1-2</option>
+                        <option value="3" >B2-1</option>
+                        <option value="4" >B2-2</option>
+                      </select>
+                    </th>
+                    <th style="width:8%;">
+                      <input type="" name="uname"  placeholder="输入昵称"  style="width: 100%;">
+                      <input type="submit" name="" style="display: none;">
+                    </th>
+                    <th>用户手机</th>
+                    <th>C1类用户</th>
+                    <th>用户手机</th>
+                    <th class="image">商品图标</th>
+                    <th style="width: 10%;">商品名称</th>
+                    <th>出货单价</th>
+                    <th>出货数量</th>
+                    <th>订单金额</th>
+                    <th>操作</th>
+                    <th>
+                      <select class="goods_status">
+                        <option value="2" >发货状态</option>
+                        <option value="3" >全部</option>
+                        <option value="0" >未发货</option>
+                        <option value="1" >已发货</option>
+                      </select>
+                    </th>
+                </tr>
+                </form>
+            </thead>
+        {foreach $items as $item}
+            <tbody>
+                <tr>
+                    <td>{$item.i}</td>
+                    <td>{$item.time}</td>
+                    <td>{$item.code}</td>
+                    <td>
+                        {switch name=$item.type}
+                            {case value="1" break="0或1"}B1{/case}
+                            {case value="2"}B1-2{/case}
+                            {case value="3"}B2-1{/case}
+                            {default /}B2-2
+                        {/switch}
+                    </td>
+                    <td>{$item.unickname}</td>
+                    <td>{$item.utel}</td>
+                    <td>{$item.snickname}</td>
+                    <td>{$item.stel}</td>
+                    <td><div class="fl"><img src="__STATIC__/uploads/product_pic/{$item.image}" class="wechat_head"></div></td>
+                    <td>{$item.name}</td>
+                    <td>{$item.unit_price}</td>
+                    <td>{$item.num}</td>
+                    <td>{$item.price}</td>
+                    {if condition = "$item.tk eq 0"}
+                    <td>
+                        <button class="btn  btn-sm edi nosend" data-toggle="modal" data-target="#a{$item.id}" uid="a{$item.id}" code="{$item.code}">未发货</button>
+                    </td>
+                    {else /}
+                    <td>
+                        <button class="btn  btn-sm edi havesend" data-toggle="modal" data-target="#a{$item.id}" uid="a{$item.id}" code="{$item.code}">已发货</button>
+                    </td>
+                    {/if}
+                    <td></td>
+                </tr>
+            </tbody>
+            <!-- 编辑的模态框 -->
+            <div class="modal fade bs-example-modal-lg  " id="a{$item.id}" tabindex="-1" id="a{$item.id}" role="dialog" aria-labelledby="myLargeModalLabel" style="margin-left:25%; ">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">收货信息</h4>
+                <form action="{:url('eye_admin/ods/ods_deal')}" method="POST">
+                  </div>
+                  <div style="margin-left:25%; ">收货人姓名：{$item.aname}</div>
+                  <div style="margin-left:25%; ">地址：{$item.addr}</div>
+                  <div style="margin-left:25%; ">电话：{$item.atel}</div>
+                  <div class="modal-body" style="margin-left:20%; ">
+                    <!-- 如果没有填写快递单号 输入框为空 -->
+                  {if condition = "$item.tk eq 0"}
+                      <!-- 收货地址：<input type="" name="address" style="display: block;"> -->
+                      快递公司：<input type="" name="tracking" style="display: block;">
+                      快递单号：<input type="number" name="tracking_number" style="display: block;">
+                  {else /}
+                      <!-- 收货地址：<input type="" name="address"  value="{$item.addr}" style="display: block;"> -->
+                      快递公司：<input type="" name="tracking" value="{$item.tracking}" style="display: block;">
+                      快递单号：<input type="number" name="tracking_number" value="{$item.tracking_number}"  style="display: block;">
+                  {/if}
+                      <input type="number" name="code" style="display: none;">
+                      <input type="number" name="id" style="display: none;">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
+                    {if condition="$item.tk eq 0"}
+                    <button type="submit" class="btn btn-primary sure1">确定</button>
+                    {else /}
+                    <!-- <button type="submit" class="btn btn-primary sure1">确定</button> -->
+                    {/if}
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+        {/foreach}
+        </table>
+    </div>
+    </div>
+     <div id="page1" >
+     <div class="pagination bPage bPageRight">
+         <ul>
+             <li id="bPageList" class="disabled bPageList"><a>每页 <select id="bPageDropList"><option  value="5">5</option><option  value="10">10</option><option  value="15">15</option><option  value="20">20</option></select> 条</a></li>
+             <li id="bPageInfo" class="disabled bPageInfo"><a>当前显示第{$page}/{$maxPage}页（共{$amount}条记录）</a></li>
+
+             <li id="bPageFirstPage" class="bPageControlButton disabled"><a href='{$href}page=1&each={$each}&date1={$date1}&date2={$date2}&search={$search}&a={$a}&uname={$uname}&b={$b}'>首页</a></li>
+
+             <li id="bPagePreviousPage" class="bPageControlButton disabled"><a href="{$href}page={$page-1}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&a={$a}&uname={$uname}&b={$b}">«</a></li>
+
+             <!-- <li class="active">< a href="">1</ a></li> -->
+             {foreach $pages as $p}
+             <li {if condition="$p eq $page"} class="active"{/if}><a href="{$href}page={$p}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&a={$a}&uname={$uname}&b={$b}">{$p}</a></li>
+             {/foreach}
+
+             <li id="bPageNextPage" class="bPageControlButton"><a href="{$href}page={$page+1}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&a={$a}&uname={$uname}&b={$b}">»</a></li>
+             <li id="bPageLastPage" class="bPageControlButton"><a href="{$href}page={$maxPage}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&a={$a}&uname={$uname}&b={$b}">尾页</a></li>
+         </ul>
+     </div>
+    </div> 
+              
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=3"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+
+    <script type="text/javascript">
+          //选择用户类型
+           $(".select").click(function(){
+                var a =$(this).val();
+                if(a!=0){
+                    window.location.href="{:url('eye_admin/ods/ods_type')}?a="+a;
+                }
+                
+           })
+
+           //获取未发货按钮里保存好的数据,放入模态框里隐藏的input框并随表单提交到后台
+           $(".nosend").click(function(){
+             var code = $(this).attr("code");
+             var id =$(this).attr("uid");
+             $("input[name=id]").val(id);
+             $("input[name=code]").val(code);
+
+           })
+
+          //获取已发货按钮里保存好的数据,放入模态框里隐藏的input框并随表单提交到后台
+           $(".havesend").click(function(){
+             var code = $(this).attr("code");
+             var id =$(this).attr("uid");
+             $("input[name=id]").val(id);
+             $("input[name=code]").val(code);
+
+           })
+
+            //分页功能
+            $("#bPageDropList").val("{$each}")
+            $('#bPageDropList').change(function(){
+             var each = $('#bPageDropList option:selected').text();
+             var url = "{$href}"
+             var date1 ="{$date1}"
+             var date2 ="{$date2}"
+             var search ="{$search}"
+             var a="{$a}"
+             var b="{$b}"
+             var uname="{$uname}"
+             window.location.href=url+"&each="+each+"&date1="+date1+"&date2="+date2+"&search="+search+"&a="+a+"&uname="+uname+"&b="+b
+            })
+
+            //筛选是否发货
+            $(".goods_status").change(function(){
+              var b=$(".goods_status option:selected").attr("value");
+              window.location.href="{:url('eye_admin/ods/goods_statu')}?b="+b;
+            })
+            
+
+
+            //点击取消 清空输入框快递公司和快递单号信息
+            // $(".cancel").click(function(){
+            //   $("input[name=tracking]").val('');
+            //   $("input[name=tracking_number]").val('');
+            // })
+            
+           
+    </script>
+
+</body>
+</html>

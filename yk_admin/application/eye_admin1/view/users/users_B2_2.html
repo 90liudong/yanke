@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>B2_2用户</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/eye_admin/css/b.page.bootstrap3.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/eye_admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/eye_admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .wechat_head{
+            width: 20%;
+        }
+        .search{
+            width: 80%;
+            background-color: rgb(33,163,250);
+            color: white;
+            border: 1px solid gray;
+            border-radius: 3px;
+        }
+        .modify{
+            width: 80%;
+            background: white;
+            border: 1px solid gray;
+            border-radius: 3px;
+            color: black;
+        }
+        .add{
+            width: 5%;
+            border-radius: 3px;
+            background-color: white;
+            border:1px solid gray;
+            color: black;
+            margin-left: 2%;
+            height: 25px;
+        }
+        .head{
+            width: 15%;
+        }
+        .uname{
+            border: 1px solid gray;
+            height: 27px;
+            width: 13%;
+        }
+        .frozen1{
+          width:50px;
+          background-color: red;
+          color: white;
+          border: 1px solid gray;
+          border-radius: 3px;
+        }
+        .frozen2{
+          width:50px;
+          background-color: gray;
+          color: white;
+          border: 1px solid gray;
+          border-radius: 3px;
+        }
+
+    </style>
+</head>
+<body>
+  <input class="s1"  data="{$Think.session.user_type}" style="display: none;">
+    <div class="ibox-content" style="font-size: 15px;padding-bottom: 10px;padding-top: 10px;">
+        <i class="fa fa-area-chart"></i> <span>首页》</span><span>B2-2用户管理</span>
+    </div>
+    <div class="ibox-content">
+        <form action="{:url('eye_admin1/users/users_search')}" method="POST" style="margin-left: 10%; margin-right: 10%;">
+            注册时间:
+          {if condition="$date1 eq 0"}
+          <input type="datetime-local" class="date1" name="date1"  value="2018-01-01T00:00">
+          {else /}
+          <input type="datetime-local" class="date1" name="date1"  value="{$date1}">
+          {/if}
+          -
+          {if condition="$date2 eq 0"}
+          <input type="datetime-local" class="date2" name="date2"<?php echo  "value=".date('Y-m-d',time())."T".date('H:i',time());?> >
+          {else /}
+          <input type="datetime-local" class="date2" name="date2" value="{$date2}" >
+          {/if}
+            <span style="margin-left: 15px;">用户昵称:</span>
+            {if condition="$search eq '0.07' "}
+            <input type="text" placeholder="请输入用户昵称" class="input-sm uname" name="search">
+            <input type="" name="u_type" style="display: none;" >
+            {else /}
+            <input type="text" placeholder="请输入用户昵称" class="input-sm uname" name="search" value="{$search}">
+            <input type="" name="u_type" style="display: none;" >
+            {/if}
+            <input type="submit" class="btn btn-primary btn-sm " value="搜索">
+        </form>
+    </div>
+	
+	<div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th class="head">微信头像</th>
+                    <th>用户昵称</th>
+                    <th>用户账号/手机号</th>
+                    <th>地区</th>     
+                    <th>单位</th>
+                    <th>注册时间</th>
+                    <th>利润总额</th>
+                    <th>收入余额</th>
+                    <th>交易记录</th>
+                    <th>所属上线</th>
+                </tr>
+            </thead>
+            {foreach $items as $item}
+                    <tbody>
+                        <tr>
+                            <td>{$item.i}</td>
+                            <td><div class="fl"><img src="{$item.headimg}" class="wechat_head"></div></td>
+                            <td>{$item.nickname}</td>
+                            <td>{$item.tel}</td>
+                            <td>{$item.addr}</td>
+                            <td>{$item.unit}</td>
+                            <td>{$item.time}</td>
+                            <td>{$item.totalprofit}</td>
+                            <td>{$item.profit}</td>
+                            <td><a href="{:url('eye_admin1/ods/b2_orders')}?id={$item.id}"><button class="search">查看</button></a></td>
+                            <td>{$item.unickname}</td>
+                            {if condition="$item.frozen eq 0"}
+                            <td><button class="frozen1 frozen" data1="{$item.frozen}" data2="{$item.id}">冻结</button></td>
+                            {else /}
+                            <td><button class="frozen2 frozen" data1="{$item.frozen}" data2="{$item.id}">解冻</button></td>
+                            {/if}
+                            <input type="" data="{$item.type}"  name="aa" style="display: none;">
+                        </tr>
+                    </tbody>
+            {/foreach}
+        </table>
+    </div>   
+    
+    
+    <div id="page1" >
+     <div class="pagination bPage bPageRight">
+         <ul>
+             <li id="bPageList" class="disabled bPageList"><a>每页 <select id="bPageDropList"><option  value="5">5</option><option  value="10">10</option><option  value="15">15</option><option  value="20">20</option></select> 条</a></li>
+             <li id="bPageInfo" class="disabled bPageInfo"><a>当前显示第{$page}/{$maxPage}页（共{$amount}条记录）</a></li>
+
+             <li id="bPageFirstPage" class="bPageControlButton disabled"><a href='{$href}page=1&each={$each}&date1={$date1}&date2={$date2}&search={$search}&u_type={$u_type}'>首页</a></li>
+
+             <li id="bPagePreviousPage" class="bPageControlButton disabled"><a href="{$href}page={$page-1}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&u_type={$u_type}">«</a></li>
+
+             <!-- <li class="active">< a href="">1</ a></li> -->
+             {foreach $pages as $p}
+             <li {if condition="$p eq $page"} class="active"{/if}><a href="{$href}page={$p}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&u_type={$u_type}">{$p}</a></li>
+             {/foreach}
+
+             <li id="bPageNextPage" class="bPageControlButton"><a href="{$href}page={$page+1}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&u_type={$u_type}">»</a></li>
+             <li id="bPageLastPage" class="bPageControlButton"><a href="{$href}page={$maxPage}&each={$each}&date1={$date1}&date2={$date2}&search={$search}&u_type={$u_type}">尾页</a></li>
+         </ul>
+     </div>
+    </div>  
+
+
+
+
+
+    <!-- 全局js -->
+    <script src="__STATIC__/eye_admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/eye_admin/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/eye_admin/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/eye_admin/js/hAdmin.js?v=4.1.0"></script>
+
+    <script type="text/javascript">
+        $("#bPageDropList").val("{$each}")
+        $('#bPageDropList').change(function(){
+             var each = $('#bPageDropList option:selected').text();
+             var url = "{$href}"
+             var date1 ="{$date1}"
+             var date2 ="{$date2}"
+             var search ="{$search}"
+             var u_type="{$u_type}"
+             window.location.href=url+"&each="+each+"&date1="+date1+"&date2="+date2+"&search="+search+"&u_type="+u_type
+        })
+        var cc = $("input[name=aa]").attr("data");
+        $("input[name=u_type]").val(cc);
+
+        var s1;
+        //获取登录的账号的类型 1=》超管 0=》普管
+        s1= $(".s1").attr("data") //session.user_type
+
+        //冻结/解冻用户功能
+        $(".frozen").click(function(){
+             if (s1!=1) {
+              alert("您没有该权限");
+             }else{
+              var frozen =$(this).attr('data1');
+              var id =$(this).attr('data2');
+              var u_type="{$u_type}"
+              if (frozen==0){
+                  var res =confirm("确定要冻结该用户吗？") 
+                  if (res==true){
+                    window.location.href="{:url('eye_admin1/users/users_frozen')}?id="+id+"&frozen="+frozen+"&u_type="+u_type;
+                  }
+              }else{
+                var res =confirm("确定要解冻该用户吗？") 
+                  if (res==true) {
+                    window.location.href="{:url('eye_admin1/users/users_frozen')}?id="+id+"&frozen="+frozen+"&u_type="+u_type;
+                  }
+              }
+             }
+        })
+
+    </script>
+
+</body>
+
+</html>

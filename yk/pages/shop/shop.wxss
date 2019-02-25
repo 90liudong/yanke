@@ -1,0 +1,87 @@
+/* pages/shop/shop.wxss */
+@import "../../wxParse/wxParse.wxss";
+.img{
+  width:100%;
+  height:756rpx;
+
+}
+.content{
+  width:85%;
+  position:absolute;
+  left:5%;
+  top:744rpx;
+  background-color:white;
+  padding:10px;
+  box-shadow:0px 1px 8px 1px #ccc;
+  border-radius:5px;
+  font-size:33rpx;
+  overflow:hidden;
+
+}
+.p{
+  text-align:center;
+  height:105rpx;
+  overflow:hidden;
+  font-size:33rpx;
+
+}
+.ku{
+  float:right;
+  font-size:30rpx;
+  color:#9A9A9A;
+
+}
+.line{
+  width:100%;
+  height:3rpx;
+  margin-top: 3%;
+  background:#ccc;
+}
+.btn{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background-color:#59C3EB;
+  color:white;
+  text-align:center;
+  /* height:105rpx; */
+
+}
+.btn1{
+  bottom:0;
+  left:0;
+  width:100%;
+  background-color:#59C3EB;
+  color:white;
+  text-align:center;
+  height:57rpx;
+
+}
+.xia{
+  color:#9A9A9A;
+  font-size:30rpx;
+  text-align:center;
+  padding-top:2%;
+}
+.bottom{
+  width:100%;
+  border-top:1px solid #ccc;
+  height:104rpx;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:white;
+
+}
+.one{
+ width:30%;
+  float:left;
+  text-align:center;
+  font-size:26rpx;
+  margin-top:2%;
+}
+.two{
+  width:20%;
+  height:40rpx;
+}

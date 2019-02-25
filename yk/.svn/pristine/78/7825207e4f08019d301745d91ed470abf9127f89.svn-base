@@ -1,0 +1,35 @@
+
+ <view class='box'> 
+  <!-- 修改密码 -->
+   <view wx:if="{{haspayword}}">
+      <view class='message'>
+      <text style='fone-size:18rpx;color:#ccc'>旧密码</text>
+      <input type='password' placeholder='请输入旧密码' placeholder-class="pp" class="inp" bindinput ="passwordInput"></input>
+    </view>
+        <view class='message'>
+      <text style='fone-size:18rpx;color:#ccc'>新密码</text>
+      <input type='password' placeholder='请输入新密码' placeholder-class="pp" class="inp" bindinput ="passwordInput1"></input>
+    </view>
+      <view class='message'>
+      <text style='fone-size:18rpx;color:#ccc'>确认新密码</text>
+      <input type='password' placeholder='请再次输入新密码' placeholder-class="pp" class="inp" bindinput ="passwordInput2"></input>
+    </view>
+    <view bindtap='setLoginPassword' class='login'>确认</view>
+  </view> 
+
+<view wx:if="{{!haspayword && (changeType==2)}}">
+      <view class='message'>
+      <text style='fone-size:18rpx;color:#ccc'>密码</text>
+      <input type='password' placeholder='请输入密码' placeholder-class="pp" class="inp" bindinput ="setPassword1"></input>
+    </view>
+        <view class='message'>
+      <text style='fone-size:18rpx;color:#ccc'>新密码</text>
+      <input type='password' placeholder='请重新输入新密码' placeholder-class="pp" class="inp" bindinput ="setPassword2"></input>
+    </view>
+    <view bindtap='setpayword' class='login'>确认</view>
+  </view> 
+
+
+ </view> 
+
+

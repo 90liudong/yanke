@@ -1,0 +1,20 @@
+<!--pages/tixian/tixian.wxml-->
+<view class='box' wx:if="{{show}}">
+  <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>银行卡号</text>
+    <input type='number'  placeholder='请输入银行卡号' placeholder-class="pp" class="inp" value='{{codenum}}' bindinput ="codenumInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>银行卡姓名</text>
+    <input type='text'  placeholder='请输入银行卡姓名' placeholder-class="pp" class="inp" value='{{name}}' bindinput ="nameInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>提现金额</text>
+    <input type='digit'  placeholder='请输入提现金额' placeholder-class="pp" step="0.01" value='{{money}}'  class="inp" bindinput ="moneyInput"></input>
+  </view>
+    <view class='message'>
+    <text style='fone-size:18rpx;color:#ccc'>资金密码</text>
+    <input type='password'  placeholder='请输入资金密码' placeholder-class="pp" class="inp" bindinput ="paywordInput"></input>
+  </view>
+  <view bindtap='sub' class='login'>确定</view>
+</view>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p>22222</p>
+	<p>222211112</p>
+	<p>13212131</p>
+	<button class="send">下单</button>
+</body>
+
+<script type="text/javascript" src="__STATIC__/js/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+		$('.send').click(function(){
+		
+
+		var url = "{:url('geng/jiekou/delect')}";
+
+		var data = {
+			token:"7827eabd4b871eb528fd6d8612c3b851",
+			gid:[4,5]
+			
+		};
+
+
+
+		
+		$.post(url,{data:data},function(data){
+			console.log(data)
+			// if(data == "进来了"){
+			// 	alert(111111)
+			// }else{
+			// 	alert(222222)
+			// }
+		})
+	
+
+		})
+		
+})
+
+
+
+</script>
+
+
+</html>
+
+
+<!-- json格式：
+{
+	"data": [{
+			"id": "1"
+		},
+		{
+			"gid": [
+				"1",
+				"2",
+				"3"
+			]
+		}
+	]
+}
+在线压缩： 
+{"data":[{"id":"1"},{"gid":["1","2","3"]}]} -->
+
+<!--json格式：
+{
+	"data": {
+		"id": "1",
+		"gid": ["1", "2", "3"]
+	}
+}
+
+
+
+{"data":{"id":"1","gid":["1","2","3"]}} -->
+
+	
